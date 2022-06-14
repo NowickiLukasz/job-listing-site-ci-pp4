@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django_countries.fields import CountryField
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -32,12 +33,29 @@ class JobListing(models.Model):
 class CoverLetter(models.Model):
     jobs = models.ForeignKey(
         JobListing, on_delete=models.CASCADE, related_name="applications"
-        8)
+        )
     title = models.CharField(max_length=150, unique=True)
     location = models.CharField(max_length=300)
     postition_type = models.CharField(max_length=20, choices=POSITION_TYPE)
     salary = models.SmallIntegerField()
     cover_letter = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+
+
+class UserProfile(models.Model):
+
+    GENDERS = (("MALE", "MALE"), ("FEMALE", "FEMALE"), ("OTHER", "OTHER"))
+    TITLE = (
+        ('mr', 'mr'), ('ms', 'ms'), ('mrs', 'mrs')
+    )
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="user_profile"
+        )
+    title = models.CharField(max_length=10, choices=TITLE)
+    f_name = models.CharField(max_length=50)
+    l_name = models.CharField(max_length=50)
+    date_of_birth = models.DateField()
+    country = CountryField()
+    gender = models.CharField(max_length=15, choices=GENDERS, default="Female")
 
     
