@@ -37,9 +37,12 @@ class CoverLetter(models.Model):
     title = models.CharField(max_length=150, unique=True)
     location = models.CharField(max_length=300)
     postition_type = models.CharField(max_length=20, choices=POSITION_TYPE)
-    salary = models.SmallIntegerField()
     cover_letter = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
 
 
 class UserProfile(models.Model):
