@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django_countries.fields import CountryField
+from django.urls import reverse
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -9,7 +10,7 @@ POSITION_TYPE = (("Full-time", "Full-time"), ("Part-time", "Part-time"))
 
 class JobListing(models.Model):
     title = models.CharField(max_length=150, unique=True)
-    slug = models.CharField(max_length=150, unique=True)
+    slug = models.CharField(max_length=150)
     employer = models.ForeignKey(User, on_delete=models.CASCADE)
     location = models.CharField(max_length=300)
     salary = models.SmallIntegerField()
@@ -28,6 +29,9 @@ class JobListing(models.Model):
 
     def numbers_of_times_saved(self):
         return self.saves.count()
+
+    def get_absolute_url(self):
+        return reverse('job_listing')
 
 
 class CoverLetter(models.Model):

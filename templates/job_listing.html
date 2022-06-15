@@ -9,13 +9,33 @@
     <h5 class="card-header">{{ job.title }} </h5>
         <div class="card-body">
             <h5 class="card-title">{{ job.location }} </h5>
-            <a href="#" class="btn btn-primary">Apply Here</a>
+            <a href="{% url 'job_details' job.slug %}" class="btn btn-primary">Apply Here</a>
             <!-- Insert functionality to only allow logged in user to like  -->
             <i id="save-toggle" class="fa-regular fa-heart"></i>
         </div>
     </div>
 </div>
 {% endfor %}
+
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+            <li>
+                <span><a href="?page={{ page_obj.previous_page_number }}">Previous</a></span>
+            </li>
+        {% endif %}
+            <li class="">
+                <span>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+            </li>
+        {% if page_obj.has_next %}
+            <li>
+                <span><a href="?page={{ page_obj.next_page_number }}">Next</a></span>
+            </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
 
 
 {% endblock %}
