@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+{% for job in joblisting_list %}
+<div class="container mt-4">
+    <div class="card" id="job-listing">
+    <h5 class="card-header">{{ job.title }} </h5>
+        <div class="card-body">
+            <h5 class="card-title">{{ job.location }} </h5>
+            <a href="#" class="btn btn-primary">Apply Here</a>
+            <!-- Insert functionality to only allow logged in user to like  -->
+            <i id="save-toggle" class="fa-regular fa-heart"></i>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+
+{% endblock %}
