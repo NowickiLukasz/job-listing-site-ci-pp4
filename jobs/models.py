@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django_countries.fields import CountryField
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -32,6 +32,8 @@ class JobListing(models.Model):
 
     def get_absolute_url(self):
         return reverse('job_listing')
+
+
 
 
 class CoverLetter(models.Model):

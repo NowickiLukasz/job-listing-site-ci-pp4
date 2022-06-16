@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import JobListing
+from django.urls import reverse_lazy
 # from .forms import JobListingForm
 
 # Create your views here.
@@ -50,3 +51,14 @@ class EditJobListingView(generic.UpdateView):
         'title', 'employer', 'location', 'salary', 'postition_type',
         'description'
     ]
+
+
+class DeleteJobListingView(generic.DeleteView):
+
+    model = JobListing
+    template_name = 'delete_job_listing.html'
+    queryset = JobListing.objects.all()
+    success_url = reverse_lazy("job_listing")
+
+    
+    
