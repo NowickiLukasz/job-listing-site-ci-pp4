@@ -39,3 +39,14 @@ class AddJobListingView(generic.CreateView):
         'title', 'employer', 'location', 'salary', 'postition_type',
         'description'
     ]
+
+
+class EditJobListingView(generic.UpdateView):
+
+    model = JobListing
+    template_name = 'edit_job_listing.html'
+    queryset = JobListing.objects.all()
+    fields = [
+        'title', 'employer', 'location', 'salary', 'postition_type',
+        'description'
+    ]

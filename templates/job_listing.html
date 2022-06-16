@@ -6,7 +6,11 @@
 {% for job in joblisting_list %}
 <div class="container mt-4">
     <div class="card" id="job-listing">
-    <h5 class="card-header">{{ job.title }} </h5>
+    <h5 class="card-header">
+        {{ job.title }} 
+        <a href="{% url 'edit_job' job.pk %}">edit</a>
+        <a href="{% url 'delete_job' job.pk %}">Delete</a>
+    </h5>
         <div class="card-body">
             <h5 class="card-title">{{ job.location }} </h5>
             <a href="{% url 'job_details' job.slug %}" class="btn btn-primary">Apply Here</a>
