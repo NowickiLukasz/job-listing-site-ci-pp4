@@ -1,1 +1,1 @@
-web: gunicorn job-forum-ci.wsgi
+web: gunicorn jobforum.wsgi
