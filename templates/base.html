@@ -23,18 +23,22 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Log Out</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Sign In</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">Log Out</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'add_job' %}">Add Job Listing</a>
                     </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_login' %}">Sign In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                    </li>
+                    
+                    {% endif %}
                 </ul>
             </div>
         </div>
@@ -47,7 +51,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-light text-center text-lg-start bottom">
+<footer class="footer bg-light text-center text-lg-start ">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2020 Copyright:
