@@ -27,9 +27,12 @@ class JobListingDetail(generic.DetailView):
             'job_details.html',
             {
                 'job': job,
-                'saves': saves
+                'saves': saves,
+                'cover_letter': CoverLetterForm()
             }
         )
+
+        
 
 class AddJobListingView(generic.CreateView):
 
@@ -66,4 +69,21 @@ class JobApplicationsView(generic.ListView):
     model = CoverLetter
     template_name = 'job_applicants.html'
     querysetlist = CoverLetter.objects.all()
+
+
+# class JobApplicationDetail(generic.DetailView):
     
+#     def get(self, request, slug, *args, **kwargs):
+#         queryset = JobListing.objects.all()
+#         job = get_object_or_404(queryset, slug=slug)
+        
+#         return render(
+#             request,
+#             'job_application_details.html',
+#             {
+#                 'job': job,
+#                 'cover_letter': CoverLetterForm(),
+                
+                
+#             }
+#         )

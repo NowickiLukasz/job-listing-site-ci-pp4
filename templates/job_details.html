@@ -3,6 +3,8 @@
 
 {% block content %}
 
+{% load crispy_forms_tags %}
+
 <div class="container">
     <div class="row">
         <div class="col-8 card mb-4 mt-3">
@@ -14,9 +16,21 @@
             <h4>Job Description: </h4>
             <p>{{ job.description | safe }}</p> 
         </div>
-        
-            
-        
+    </div>
+
+    <div class="row">
+        <div class="col-8">
+            <div class="card-body">
+                <h3>This is a cover letter form</h3>
+                <form mathod="POST">
+                    {{ cover_letter | crispy }}
+                    {% csrf_token %}
+                    <input type="submit" value="Submit cover letter">
+                </form>
+
+                
+            </div>
+        </div>
     </div>
 </div>
 
