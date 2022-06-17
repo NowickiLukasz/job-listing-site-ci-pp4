@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from .models import JobListing
+from .models import JobListing, CoverLetter
 from django.urls import reverse_lazy
-# from .forms import JobListingForm
+from .forms import CoverLetterForm
 
 # Create your views here.
 
@@ -60,5 +60,10 @@ class DeleteJobListingView(generic.DeleteView):
     queryset = JobListing.objects.all()
     success_url = reverse_lazy("job_listing")
 
-    
+
+class JobApplicationsView(generic.ListView):
+
+    model = CoverLetter
+    template_name = 'job_applicants.html'
+    querysetlist = CoverLetter.objects.all()
     

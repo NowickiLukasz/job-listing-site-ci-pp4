@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'cloudinary',
     'django_countries',
     'django_summernote',
+    'crispy_forms',
     'jobs'
 ]
 
@@ -58,6 +59,8 @@ SITE_ID = 1
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

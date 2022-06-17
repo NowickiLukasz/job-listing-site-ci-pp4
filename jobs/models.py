@@ -40,6 +40,7 @@ class CoverLetter(models.Model):
     jobs = models.ForeignKey(
         JobListing, on_delete=models.CASCADE, related_name="applications"
         )
+    full_name = models.CharField(max_length=150, default='Enter Full Name')
     title = models.CharField(max_length=150, unique=True)
     location = models.CharField(max_length=300)
     postition_type = models.CharField(max_length=20, choices=POSITION_TYPE)
