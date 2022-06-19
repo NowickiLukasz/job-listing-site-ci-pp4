@@ -7,6 +7,9 @@ from .forms import CoverLetterForm
 # Create your views here.
 
 class JobListingView(generic.ListView):
+    """
+    Creates a list of job listings that can be viewed
+    """
     model = JobListing
     queryset = JobListing.objects.filter(composed_status=1)
     template_name = 'job_listing.html'
@@ -14,6 +17,9 @@ class JobListingView(generic.ListView):
 
 
 class JobListingDetail(generic.DetailView):
+    """
+        Allows the details of a job listing to be viewed
+    """
     
     def get(self, request, slug, *args, **kwargs):
         queryset = JobListing.objects.filter(composed_status=1)
@@ -28,13 +34,44 @@ class JobListingDetail(generic.DetailView):
             {
                 'job': job,
                 'saves': saves,
+                # 'submited': False,
+                'cover_letter': CoverLetterForm()
+            }
+        )
+    
+    def post(self, request, slug, *args, **kwargs):
+        queryset = JobListing.objects.filter(composed_status=1)
+        job = get_object_or_404(queryset, slug=slug)
+        saves = False
+        if job.saves.filter(id=self.request.user.id).exists():
+            saves = True
+
+        cover_letter_form = CoverLetterForm(data=request.POST)
+        
+        if cover_letter_form.is_valid():
+            cover_letter_form.instance.full_name = request.user.username
+            cover_letter = cover_letter_form.save(commit=False)
+            cover_letter.job = job
+            cover_letter.save()
+        else:
+            cover_letter_form = CoverLetterForm()
+        
+        return render(
+            request,
+            'job_details.html',
+            {
+                'job': job,
+                'saves': saves,
+                # 'submited': True,
                 'cover_letter': CoverLetterForm()
             }
         )
 
-        
 
 class AddJobListingView(generic.CreateView):
+    """
+        Allows for the creation of a new jobs listing
+    """
 
     model = JobListing
     queryset = JobListing.objects.all()
@@ -46,6 +83,9 @@ class AddJobListingView(generic.CreateView):
 
 
 class EditJobListingView(generic.UpdateView):
+    """
+        Allows for the editing of an existing job listing
+    """
 
     model = JobListing
     template_name = 'edit_job_listing.html'
@@ -57,6 +97,9 @@ class EditJobListingView(generic.UpdateView):
 
 
 class DeleteJobListingView(generic.DeleteView):
+    """
+        Allows for the deletion of a jobs listing
+    """
 
     model = JobListing
     template_name = 'delete_job_listing.html'
@@ -65,25 +108,12 @@ class DeleteJobListingView(generic.DeleteView):
 
 
 class JobApplicationsView(generic.ListView):
+    """
+        Displays a list view of all the job applications
+    """
 
     model = CoverLetter
     template_name = 'job_applicants.html'
     querysetlist = CoverLetter.objects.all()
 
 
-# class JobApplicationDetail(generic.DetailView):
-    
-#     def get(self, request, slug, *args, **kwargs):
-#         queryset = JobListing.objects.all()
-#         job = get_object_or_404(queryset, slug=slug)
-        
-#         return render(
-#             request,
-#             'job_application_details.html',
-#             {
-#                 'job': job,
-#                 'cover_letter': CoverLetterForm(),
-                
-                
-#             }
-#         )

@@ -9,6 +9,9 @@ STATUS = ((0, "Draft"), (1, "Published"))
 POSITION_TYPE = (("Full-time", "Full-time"), ("Part-time", "Part-time"))
 
 class JobListing(models.Model):
+    """
+        Creates a model jod details of job listings
+    """
     title = models.CharField(max_length=150, unique=True)
     slug = models.CharField(max_length=150)
     employer = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -37,22 +40,29 @@ class JobListing(models.Model):
 
 
 class CoverLetter(models.Model):
+    """
+        Creates a model for details of a cover letter
+    """
     jobs = models.ForeignKey(
-        JobListing, on_delete=models.CASCADE, related_name="applications"
+        JobListing, on_delete=models.CASCADE, related_name="applications",
+        null=True
         )
-    full_name = models.CharField(max_length=150, default='Enter Full Name')
-    title = models.CharField(max_length=150, unique=True)
+    full_name = models.CharField(max_length=150, default='{% user.username')
+    title = models.CharField(max_length=150)
     location = models.CharField(max_length=300)
     postition_type = models.CharField(max_length=20, choices=POSITION_TYPE)
     cover_letter = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    
 
     def __str__(self):
         return self.title
 
 
-
 class UserProfile(models.Model):
+    """
+        Creates a models for details for a user profile page
+    """
 
     GENDERS = (("MALE", "MALE"), ("FEMALE", "FEMALE"), ("OTHER", "OTHER"))
     TITLE = (

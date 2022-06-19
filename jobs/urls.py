@@ -11,12 +11,7 @@ urlpatterns = [
     path('edit-job/<int:pk>', EditJobListingView.as_view(), name='edit_job'),
     path('delete-job/<int:pk>', DeleteJobListingView.as_view(), name='delete_job'),
     path('job-applicants/', JobApplicationsView.as_view(), name='job_applicants'),
-
     path('<slug:slug>/', JobListingDetail.as_view(), name='job_details'),
-    # path('edit-job/', EditJobListingView.as_view(), name='edit_job'),
-
-    # path('add-job/', AddJobListingView.as_view(), name='add_job'),
-    # path('edit-job/', EditJobListingView.as_view(), name='edit_job')
-    
+  
 
 ]

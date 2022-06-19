@@ -28,15 +28,16 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="{% url 'job_applicants' %}">Applicants</a>
                         </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_job' %}">Add Job Listing</a>
+                        </li>
                     {% endif %}
 
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">Log Out</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'add_job' %}">Add Job Listing</a>
-                    </li>
+                    
                     {% else %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_login' %}">Sign In</a>
@@ -58,7 +59,7 @@
     </main>
 
     <!-- Footer -->
-<footer class="footer bg-light text-center text-lg-start ">
+    <footer class="footer bg-light text-center text-lg-start ">
         <!-- Copyright -->
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2020 Copyright:

@@ -21,12 +21,26 @@
     <div class="row">
         <div class="col-8">
             <div class="card-body">
+                <!-- {% if submited %}
+                    submited
+                {% else %} -->
+                {% if user.is_authenticated %}
                 <h3>This is a cover letter form</h3>
-                <form mathod="POST">
-                    {{ cover_letter | crispy }}
+                <form method="POST" action="#">
+                    <!-- {{ cover_letter | crispy }} -->
+                    <h2>Title: {{ job.title }}</h2>
+                    <h4>Employer: {{ job.employer }}</h4>
+                    <h4>Location: {{ job.location }}</h4>
+                    <h4>Salary: {{ job.salary }}</h4>
+                    <h4>Position Type: {{ job.postition_type }}</h4>
+                    <h4>Cover Letter: </h4>
+                    <p>{{ cover_letter | crispy }}</p> 
+                    
                     {% csrf_token %}
                     <input type="submit" value="Submit cover letter">
                 </form>
+                {% endif %}
+                <!-- {% endif %} -->
 
                 
             </div>
