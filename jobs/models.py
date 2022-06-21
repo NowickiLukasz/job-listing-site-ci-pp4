@@ -10,11 +10,11 @@ POSITION_TYPE = (("Full-time", "Full-time"), ("Part-time", "Part-time"))
 
 class JobListing(models.Model):
     """
-        Creates a model jod details of job listings
+        Creates a model job details of job listings
     """
     title = models.CharField(max_length=150, unique=True)
     slug = models.CharField(max_length=150)
-    employer = models.ForeignKey(User, on_delete=models.CASCADE)
+    employer = models.CharField(max_length=200)
     location = models.CharField(max_length=300)
     salary = models.SmallIntegerField()
     postition_type = models.CharField(max_length=20, choices=POSITION_TYPE)
@@ -37,8 +37,6 @@ class JobListing(models.Model):
         return reverse('job_listing')
 
 
-
-
 class CoverLetter(models.Model):
     """
         Creates a model for details of a cover letter
@@ -47,7 +45,7 @@ class CoverLetter(models.Model):
         JobListing, on_delete=models.CASCADE, related_name="applications",
         null=True
         )
-    full_name = models.CharField(max_length=150, default='{% user.username')
+    full_name = models.CharField(max_length=150, default='Full Name')
     title = models.CharField(max_length=150)
     location = models.CharField(max_length=300)
     postition_type = models.CharField(max_length=20, choices=POSITION_TYPE)

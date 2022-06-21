@@ -2,7 +2,9 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import JobListing, CoverLetter
 from django.urls import reverse_lazy
-from .forms import CoverLetterForm
+from .forms import(
+    CoverLetterForm, AddJobListingForm, EditJobListingForm
+    ) 
 
 # Create your views here.
 
@@ -76,10 +78,13 @@ class AddJobListingView(generic.CreateView):
     model = JobListing
     queryset = JobListing.objects.all()
     template_name = 'add_job_listing.html'
-    fields = [
-        'title', 'employer', 'location', 'salary', 'postition_type',
-        'description'
-    ]
+    form_class = AddJobListingForm
+    # fields = [
+    #     'title', 'employer', 'location', 'salary', 'postition_type',
+    #     'description'
+    # ]
+
+    
 
 
 class EditJobListingView(generic.UpdateView):
@@ -90,10 +95,11 @@ class EditJobListingView(generic.UpdateView):
     model = JobListing
     template_name = 'edit_job_listing.html'
     queryset = JobListing.objects.all()
-    fields = [
-        'title', 'employer', 'location', 'salary', 'postition_type',
-        'description'
-    ]
+    form_class = EditJobListingForm
+    # fields = [
+    #     'title', 'employer', 'location', 'salary', 'postition_type',
+    #     'description'
+    # ]
 
 
 class DeleteJobListingView(generic.DeleteView):
@@ -116,4 +122,13 @@ class JobApplicationsView(generic.ListView):
     template_name = 'job_applicants.html'
     querysetlist = CoverLetter.objects.all()
 
+class ApplicantDetailsView(generic.DetailView):
+    """
+        Displays job details and the cover letter provided by the user
+    """
+
+    model = CoverLetter
+    template_name = 'job_application_details.html'
+    querysetlist = CoverLetter.objects.all()
+    
 

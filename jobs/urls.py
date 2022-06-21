@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
     JobListingView, JobListingDetail, AddJobListingView, EditJobListingView,
-    DeleteJobListingView, JobApplicationsView
+    DeleteJobListingView, JobApplicationsView, ApplicantDetailsView
 )
 
 urlpatterns = [
@@ -11,6 +11,7 @@ urlpatterns = [
     path('edit-job/<int:pk>', EditJobListingView.as_view(), name='edit_job'),
     path('delete-job/<int:pk>', DeleteJobListingView.as_view(), name='delete_job'),
     path('job-applicants/', JobApplicationsView.as_view(), name='job_applicants'),
+    path('application-details/<int:pk>', ApplicantDetailsView.as_view(), name='application_details'),
     path('<slug:slug>/', JobListingDetail.as_view(), name='job_details'),
   
 

@@ -7,32 +7,22 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-8 card mb-4 mt-3">
-            <h2>Title: {{ job.title }}</h2>
-            <h4>Employer: {{ job.employer.id }}</h4>
-            <h4>Location: {{ job.location }}</h4>
-            <h4>Salary: {{ job.salary }}</h4>
-            <h4>Position Type: {{ job.postition_type }}</h4>
-            <h4>Job Description: </h4>
-            <p>{{ job.description | safe }}</p> 
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-8">
+        <div class="col">
             <div class="card-body">
                 <!-- {% if submited %}
                     submited
                 {% else %} -->
                 {% if user.is_authenticated %}
-                <h3>This is a cover letter form</h3>
+                
                 <form method="POST" action="#">
-                    <!-- {{ cover_letter | crispy }} -->
                     <h2>Title: {{ job.title }}</h2>
-                    <h4>Employer: {{ job.employer }}</h4>
+                    <h4>Employer: {{ job.employer.id }}</h4>
                     <h4>Location: {{ job.location }}</h4>
                     <h4>Salary: {{ job.salary }}</h4>
                     <h4>Position Type: {{ job.postition_type }}</h4>
+                    <h4>Description:</h4>
+                    <p>{{ job.description }}</p>
+                    <hr>
                     <h4>Cover Letter: </h4>
                     <p>{{ cover_letter | crispy }}</p> 
                     

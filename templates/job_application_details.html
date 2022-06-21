@@ -2,24 +2,11 @@
 
 
 {% block content %}
+{% load crispy_forms_tags %}
+
 Job application cover letter
 
-<div class="container">
-    <div class="row">
-        <div class="col-8 card mb-4 mt-3">
-            <h2>Title: {{ job.title }}</h2>
-            <h4>Employer: {{ job.employer.id }}</h4>
-            <h4>Location: {{ job.location }}</h4>
-            <h4>Salary: {{ job.salary }}</h4>
-            <h4>Position Type: {{ job.postition_type }}</h4>
-            <h4>Cover Letter: </h4>
-            <p>{{ applicant | safe }}</p> 
-        </div>
-        
-            
-        
-    </div>
-</div>
+
 
 
 
