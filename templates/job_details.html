@@ -20,8 +20,9 @@
                     <h4>Location: {{ job.location }}</h4>
                     <h4>Salary: {{ job.salary }}</h4>
                     <h4>Position Type: {{ job.postition_type }}</h4>
+                    <hr>
                     <h4>Description:</h4>
-                    <p>{{ job.description }}</p>
+                    <p>{{ job.description | safe}}</p>
                     <hr>
                     <h4>Cover Letter: </h4>
                     <p>{{ cover_letter | crispy }}</p> 
