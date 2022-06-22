@@ -15,8 +15,8 @@
                 {% if user.is_authenticated %}
                 
                 <form method="POST" action="#">
-                    <h2>Title: {{ job.title }}</h2>
-                    <h4>Employer: {{ job.employer.id }}</h4>
+                    <h2>Job Title: {{ job.title }}</h2>
+                    <!-- <h4>Employer: {{ job.employer.username }}</h4> -->
                     <h4>Location: {{ job.location }}</h4>
                     <h4>Salary: {{ job.salary }}</h4>
                     <h4>Position Type: {{ job.postition_type }}</h4>

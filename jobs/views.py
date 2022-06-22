@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import JobListing, CoverLetter
 from django.urls import reverse_lazy
 from .forms import(
@@ -122,25 +123,4 @@ class JobApplicationsView(generic.ListView):
     template_name = 'job_applicants.html'
     querysetlist = CoverLetter.objects.all()
 
-
-class ApplicantDetailsView(generic.DetailView):
-    """
-        Displays job details and the cover letter provided by the user
-    """
-
-    def get(self, request, slug, *args, **kwargs):
-        queryset = JobListing.objects.all()
-        job = get_object_or_404(queryset, slug=slug)
-        
-        return render(
-            request,
-            'job_application_details.html',
-            {
-                'job': job,
-                # 'saves': saves,
-                # 'submited': False,
-                'cover_letter': CoverLetterForm
-            }
-        )
-    
 

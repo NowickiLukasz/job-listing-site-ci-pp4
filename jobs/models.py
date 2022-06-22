@@ -14,7 +14,7 @@ class JobListing(models.Model):
     """
     title = models.CharField(max_length=150, unique=True)
     slug = models.CharField(max_length=150)
-    employer = models.CharField(max_length=200)
+    # employer = models.ForeignKey(User, on_delete=models.CASCADE)
     location = models.CharField(max_length=300)
     salary = models.SmallIntegerField()
     postition_type = models.CharField(max_length=20, choices=POSITION_TYPE)

@@ -8,14 +8,15 @@
     <div class="card" id="job-listing">
     <h5 class="card-header">
         {{ job.title }} 
-        <a href="{% url 'edit_job' job.pk %}">edit</a>
+        <a href="{% url 'edit_job' job.pk %}">Edit</a>
         <a href="{% url 'delete_job' job.pk %}">Delete</a>
     </h5>
         <div class="card-body">
             <h5 class="card-title">{{ job.location }} </h5>
             <a href="{% url 'job_details' job.slug %}" class="btn btn-primary">Apply Here</a>
-            <!-- Insert functionality to only allow logged in user to like  -->
-            <i id="save-toggle" class="fa-regular fa-heart"></i>
+
+
+            
         </div>
     </div>
 </div>

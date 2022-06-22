@@ -8,7 +8,7 @@ class CoverLetterForm(forms.ModelForm):
 
         model = CoverLetter
         fields = (
-            'full_name', 'cover_letter',
+            'jobs', 'full_name', 'cover_letter',
         )
 
 
@@ -20,13 +20,13 @@ class AddJobListingForm(forms.ModelForm):
 
         model = JobListing
         fields = (
-            'title', 'employer', 'location', 'salary', 'postition_type',
+            'title', 'location', 'salary', 'postition_type',
             'description',
         )
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'employer': forms.TextInput(attrs={'class': 'form-control'}),
+            # 'employer': forms.TextInput(attrs={'class': 'form-control'}),
             'location': forms.TextInput(attrs={'class': 'form-control'}),
             'salary': forms.NumberInput(attrs={'class': 'form-control'}),
             'postition_type': forms.Select(attrs={'class': 'form-control'}),
@@ -43,16 +43,16 @@ class EditJobListingForm(forms.ModelForm):
 
         model = JobListing
         fields = (
-            'title', 'employer', 'location', 'salary', 'postition_type',
+            'title', 'location', 'salary', 'postition_type',
             'description',
         )
 
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            'employer': forms.Select(attrs={'class': 'form-control'}),
+            # 'employer': forms.Select(attrs={'class': 'form-control'}),
             'location': forms.TextInput(attrs={'class': 'form-control'}),
             'salary': forms.NumberInput(attrs={'class': 'form-control'}),
-            'postition_type': forms.Textarea(attrs={'class': 'form-control'}),
+            'postition_type': forms.Select(attrs={'class': 'form-control'}),
             'description': SummernoteWidget(attrs={'class': 'form-control'}),
             
         }
