@@ -8,8 +8,12 @@ class CoverLetterForm(forms.ModelForm):
 
         model = CoverLetter
         fields = (
-            'jobs', 'full_name', 'cover_letter',
+            'jobs', 'cover_letter',
         )
+
+        widgets = {
+            'cover_letter': SummernoteWidget(attrs={'class': 'form-control'}),
+        }
 
 
 class AddJobListingForm(forms.ModelForm):

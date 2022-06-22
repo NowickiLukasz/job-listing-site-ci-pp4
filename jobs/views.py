@@ -124,3 +124,27 @@ class JobApplicationsView(generic.ListView):
     querysetlist = CoverLetter.objects.all()
 
 
+class JobApplicationDetailsView(generic.DetailView):
+
+
+    def get(self, request, *args, **kwargs):
+        # queryset = JobListing.objects.all()
+        # job = get_object_or_404(queryset)
+
+        queryset2 = CoverLetter.objects.all()
+        cover_letter = get_object_or_404(queryset2)
+
+        joblisting = cover_letter.jobs
+        
+        return render(
+            request,
+            'job_application_details.html',
+            {
+                'job': joblisting,
+                # 'submited': False,
+                'cover_letter': cover_letter
+            }
+        )
+
+
+
