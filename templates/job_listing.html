@@ -8,11 +8,15 @@
     <div class="card" id="job-listing">
     <h5 class="card-header">
         {{ job.title }} 
+        
+        {% if user.is_superuser %}
         <a href="{% url 'edit_job' job.pk %}">Edit</a>
         <a href="{% url 'delete_job' job.pk %}">Delete</a>
+        {% endif %}
     </h5>
         <div class="card-body">
             <h5 class="card-title">{{ job.location }} </h5>
+            <p class="card-title">{{ job.postition_type }} </p>
             <a href="{% url 'job_details' job.slug %}" class="btn btn-primary">Apply Here</a>
 
 

@@ -15,7 +15,7 @@ Applicants page
     </h5>
         <div class="card-body">
             <h5 class="card-title">{{ applicant.location }} </h5>
-            <a href="{% url 'application_details' %}" class="btn btn-primary">View Application</a>
+            <a href="{% url 'application_details' applicant.pk %}" class="btn btn-primary">View Application</a>
             
         </div>
     </div>

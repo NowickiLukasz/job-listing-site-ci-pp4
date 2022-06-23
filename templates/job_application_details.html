@@ -5,16 +5,24 @@
 {% load crispy_forms_tags %}
 
 Job application cover letter
+<div class="container">
+        <div class="row">
+                <div class="col">
+                        <h2>Job Title: {{ job.title }}</h2>
+                        <h4>Location: {{ job.location }}</h4>
+                        <h4>Salary: {{ job.salary }}</h4>
+                        <h4>Position Type: {{ job.postition_type }}</h4>
+                        <hr>
+                        <h4>Description:</h4>
+                        <p>{{ job.description | safe}}</p>
+                        <hr>
+                        <h4>Cover Letter: </h4>
+                        <p>{{ cover_letter.cover_letter | safe }}</p>
+                </div>
+        </div>
+</div>
 
-        <h2>Job Title: {{ job.title }}</h2>
-        <h4>Location: {{ job.location }}</h4>
-        <h4>Salary: {{ job.salary }}</h4>
-        <h4>Position Type: {{ job.postition_type }}</h4>
-        <hr>
-        <h4>Description:</h4>
-        <p>{{ job.description | safe}}</p>
-        <hr>
-        <h4>Cover Letter: </h4>
-        <p>{{ cover_letter.cover_letter | safe }}</p> 
+
+        
 
 {% endblock %}
