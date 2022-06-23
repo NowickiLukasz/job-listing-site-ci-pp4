@@ -5,13 +5,51 @@ Table of content
 
 planning
     Site aims
-        What the site is meant to do for the users 
+        The aim of this site is the create a fictional company in need of employees. 
+
+        The site will have a single employer who will be able to add new job listings, edit current ones and delete ones that do not need to be advertised anymore. 
+
+        The Employer will be able to keep jobs in draft mode untill they are ready to publish them. 
+
+        While the Employer will be able to see the job applications from registered users. 
+        The user wil be able to view the job listings and select which eveer one they deem most suitable for themselves. 
+
+        They will be able to submit a cover letter to a specific job. 
     
     Scope
-        Divide the project into sections so that we can show the best use of time to and effort 
+- Must have **USER** functions
+    - User can login /logout
+    - User can view job listings
+    - User can apply for job listings
+    - User can edit own profile page
+
+
+- Must have **EMPLOYER** functions
+    - Employer can login / logout
+    - Employer can add job listings
+    - Employer can edit job lisings
+    - Employer can delete job listings
+    - Employer can draft job listings
+    - Employer can view job aplpications
+
+- Should have **USER** functions
+    - View landing page 
+    - User can save jobs 
+
+- Should have **EMPLOYER** functions
+    - View how many saves of a job 
+
+- Not recommended at this time
+    - Direct text chat with employer/user
+    - View amount of applicants for a job 
+    - Attachment of CV file to the site 
+    - Employer details 
+
     
     Structure
-        Show how the site works in base functiuonality drawings
+        Show how the site works in base functiuonality drawing
+
+        Wireframes
 
     User stories
         Show what has been planned to allow the user to use the site functionaly 
@@ -59,6 +97,27 @@ Features
 
     Pagination
         Allows to show a certain number of items on pages before moving tyo another opage
+
+    Adding Modals as defensive programing
+        Add a modal to show that a deleption is irreversible 
+
+Testing 
+    Either manual or automatic
+
+Deployment 
+    Full spread of how to deploy the site from the beggining
+
+Tech Used 
+    python
+    Django
+    Heroku
+    Heroky PostgrSQL
+    HTML
+    CSS
+    JINJA
+    Boostrap
+    Font Awesome
+    Balsamiq
     
 
     
