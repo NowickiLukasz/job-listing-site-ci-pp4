@@ -23,7 +23,7 @@ class JobListingDetail(generic.DetailView):
     """
         Allows the details of a job listing to be viewed
     """
-    
+
     def get(self, request, slug, *args, **kwargs):
         queryset = JobListing.objects.filter(composed_status=1)
         job = get_object_or_404(queryset, slug=slug)
@@ -85,8 +85,6 @@ class AddJobListingView(generic.CreateView):
     #     'description'
     # ]
 
-    
-
 
 class EditJobListingView(generic.UpdateView):
     """
@@ -127,15 +125,15 @@ class JobApplicationsView(generic.ListView):
 class JobApplicationDetailsView(generic.DetailView):
 
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, pk,  *args, **kwargs):
         # queryset = JobListing.objects.all()
         # job = get_object_or_404(queryset)
-
+        
         queryset2 = CoverLetter.objects.all()
-        cover_letter = get_object_or_404(queryset2)
+        cover_letter = get_object_or_404(queryset2, pk=pk)
 
         joblisting = cover_letter.jobs
-        
+
         return render(
             request,
             'job_application_details.html',

@@ -8,7 +8,7 @@ class CoverLetterForm(forms.ModelForm):
 
         model = CoverLetter
         fields = (
-            'jobs', 'cover_letter',
+            'jobs', 'cover_letter', 'location'
         )
 
         widgets = {
