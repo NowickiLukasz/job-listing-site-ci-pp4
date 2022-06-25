@@ -15,7 +15,7 @@
                 {% if user.is_authenticated %}
                 
                 <form method="POST" action="#">
-                    <h2>Job Title: {{ job.title }}</h2>
+                    <h2>Job Title: {{ job.title }} </h2>
                     <!-- <h4>Employer: {{ job.employer.username }}</h4> -->
                     <h4>Location: {{ job.location }}</h4>
                     <h4>Salary: {{ job.salary }}</h4>
@@ -31,6 +31,22 @@
                     <input type="submit" value="Submit cover letter">
                 </form>
                 {% endif %}
+
+                <strong>
+                    {% if user.is_authenticated %}
+                        <form action="{% url 'job_save' job.slug %}" method="POST">
+                            {% csrf_token %}
+                            {% if saves %}
+                            <button type="submit" value="{{ job.slug }}" class="btn"><i class="fas fa-heart"></i></button>
+                            {% else %}
+                            <button type="submit" value="{{ job.slug }}" class="btn"><i class="far fa-heart"></i></button>
+
+                            {% endif %}
+                        </form>
+                    {% endif %}
+                </strong>
+
+                
                 <!-- {% endif %} -->
 
                 

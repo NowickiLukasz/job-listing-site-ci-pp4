@@ -1,9 +1,9 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import JobListing, CoverLetter
 from django.urls import reverse_lazy
-from .forms import(
+from .models import JobListing, CoverLetter
+from .forms import (
     CoverLetterForm, AddJobListingForm, EditJobListingForm
     ) 
 
@@ -145,4 +145,14 @@ class JobApplicationDetailsView(generic.DetailView):
         )
 
 
+class JobSave(View):
 
+    def post(self, request, slug):
+        job = get_object_or_404(JobListing, slug=slug)
+
+        if job.saves.filter(id=request.user.id).exists():
+            job.saves.remove(request.user)
+        else:
+            job.saves.add(request.user)
+        
+        return HttpResponseRedirect(reverse('job_details', args=[slug]))

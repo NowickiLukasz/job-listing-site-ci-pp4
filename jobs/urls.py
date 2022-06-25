@@ -1,7 +1,8 @@
 from django.urls import path
 from .views import (
     JobListingView, JobListingDetail, AddJobListingView, EditJobListingView,
-    DeleteJobListingView, JobApplicationsView, JobApplicationDetailsView
+    DeleteJobListingView, JobApplicationsView, JobApplicationDetailsView,
+    JobSave
 
 )
 
@@ -26,4 +27,5 @@ urlpatterns = [
         name='application_details'
         ),
     path('<slug:slug>/', JobListingDetail.as_view(), name='job_details'),
+    path('saved/<slug:slug>', JobSave.as_view(), name='job_save'),
 ]
