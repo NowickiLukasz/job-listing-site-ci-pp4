@@ -16,8 +16,11 @@ Job application cover letter
                         <h4>Description:</h4>
                         <p>{{ job.description | safe}}</p>
                         <hr>
+                        <h4>Applicant Username: {{ cover_letter.full_name}}</h4>
+                        <hr>
                         <h4>Cover Letter: </h4>
                         <p>{{ cover_letter.cover_letter | safe }}</p>
+                        <p>{{ cover_letter.created_on }}</p>
                 </div>
         </div>
 </div>
