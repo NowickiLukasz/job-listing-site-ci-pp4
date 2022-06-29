@@ -7,8 +7,11 @@ from .views import (
 )
 
 urlpatterns = [
+    # homepage 
     path('', JobListingView.as_view(), name='home'),
+    # joblisting page
     path('job-listing/', JobListingView.as_view(), name='job_listing'),
+    # Addjob page
     path('add-job/', AddJobListingView.as_view(), name='add_job'),
     path('edit-job/<int:pk>', EditJobListingView.as_view(), name='edit_job'),
     path(

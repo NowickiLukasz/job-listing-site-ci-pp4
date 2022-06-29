@@ -52,9 +52,11 @@ class JobListingDetail(generic.DetailView):
         cover_letter_form = CoverLetterForm(data=request.POST)
         
         if cover_letter_form.is_valid():
+            # sets full name instance to username
             cover_letter_form.instance.full_name = request.user.username
             cover_letter = cover_letter_form.save(commit=False)
-            cover_letter.job = job
+            cover_letter.user = request.user
+            cover_letter.jobs = job
             cover_letter.save()
         else:
             cover_letter_form = CoverLetterForm()
@@ -77,37 +79,19 @@ class AddJobListingView(generic.CreateView):
     """
 
     model = JobListing
-    queryset = JobListing.objects.all()
+    # queryset = JobListing.objects.all()
     template_name = 'add_job_listing.html'
     form_class = AddJobListingForm
+
     # fields = [
-    #     'title', 'employer', 'location', 'salary', 'postition_type',
+    #     'title', 'location', 'salary', 'postition_type',
     #     'description'
     # ]
-
-    def post(self, request, slug, *args, **kwargs):
-        queryset = JobListing.objects.all()
-        job = get_object_or_404(queryset, slug=slug)
-       
-        add_job_form = AddJobListingForm(data=request.POST)
-        
-        if add_job_form.is_valid():
-            add_job = add_job_form.save(commit=False)
-            add_job_form.job = job
-            add_job_form.save()
-        else:
-            add_job_form = AddJobListingForm()
-        
-        return render(
-            request,
-            'add_job_listing.html',
-            {
-                'add_job': add_job,
-            
-           
-            
-            }
-        )
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
 
 
 class EditJobListingView(generic.UpdateView):

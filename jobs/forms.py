@@ -30,8 +30,8 @@ class AddJobListingForm(forms.ModelForm):
         )
 
         widgets = {
+
             'title': forms.TextInput(attrs={'class': 'form-control'}),
-            # 'employer': forms.TextInput(attrs={'class': 'form-control'}),
             'location': forms.TextInput(attrs={'class': 'form-control'}),
             'salary': forms.NumberInput(attrs={'class': 'form-control'}),
             'postition_type': forms.Select(attrs={'class': 'form-control'}),
