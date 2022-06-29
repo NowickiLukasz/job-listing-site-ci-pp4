@@ -26,7 +26,7 @@
 
                     {% if user.is_superuser %}
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="{% url 'job_applicants' %}">Applicants</a>
+                            <a class="nav-link active" aria-current="page" href="{% url 'job_applicants' %}">Applications</a>
                         </li>
                         <li class="nav-item">
                         <a class="nav-link" href="{% url 'add_job' %}">Add Job Listing</a>
@@ -35,7 +35,13 @@
 
                     {% if user.is_authenticated %}
                     <li class="nav-item">
+                        <a class="nav-link" href="{% url 'job_listing' %}">Job Listings</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'account_logout' %}">Log Out</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'user_details' %}">Profile</a>
                     </li>
                     
                     {% else %}
@@ -45,6 +51,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
                     </li>
+                    
                     
                     {% endif %}
                 </ul>

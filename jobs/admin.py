@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import JobListing, CoverLetter
+from .models import JobListing, CoverLetter, UserProfile
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
@@ -18,7 +18,7 @@ class JobAdmin(SummernoteModelAdmin):
     actions = ['approve_joblisting']
 
     def approve_joblisting(self, request, queryset):
-        queryset.update(approved=True)
+        queryset.update(composed_status=True)
 
 
 @admin.register(CoverLetter)
@@ -28,4 +28,8 @@ class CoverLetterAdmin(SummernoteModelAdmin):
     list_filter = ('created_on', 'postition_type')
     summernote_fields = ('cover_letter')
     
-    
+
+@admin.register(UserProfile)
+class UserProfileAdmin(SummernoteModelAdmin):
+    list_display = ('user', 'country', 'date_of_birth')
+    list_filter = ('gender', 'country', 'date_of_birth')

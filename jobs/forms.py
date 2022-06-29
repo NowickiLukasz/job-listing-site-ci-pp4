@@ -8,11 +8,12 @@ class CoverLetterForm(forms.ModelForm):
 
         model = CoverLetter
         fields = (
-            'jobs', 'cover_letter'
+            'cover_letter',
         )
 
         widgets = {
             'cover_letter': SummernoteWidget(attrs={'class': 'form-control'}),
+            
         }
 
 

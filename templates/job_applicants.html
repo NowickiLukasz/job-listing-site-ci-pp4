@@ -14,7 +14,8 @@ Applicants page
         {{ applicant.full_name }} 
     </h5>
         <div class="card-body">
-            <h5 class="card-title">{{ applicant.location }} </h5>
+            <h5 class="card-title">{{ applicant.jobs.location }} </h5>
+            <h5 class="card-title">{{ applicant.jobs.title }}  </h5>
             <a href="{% url 'application_details' applicant.pk %}" class="btn btn-primary">View Application</a>
             
         </div>

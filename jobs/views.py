@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from .models import JobListing, CoverLetter
+from .models import JobListing, CoverLetter, UserProfile
 from .forms import (
     CoverLetterForm, AddJobListingForm, EditJobListingForm
     ) 
@@ -85,6 +85,30 @@ class AddJobListingView(generic.CreateView):
     #     'description'
     # ]
 
+    def post(self, request, slug, *args, **kwargs):
+        queryset = JobListing.objects.all()
+        job = get_object_or_404(queryset, slug=slug)
+       
+        add_job_form = AddJobListingForm(data=request.POST)
+        
+        if add_job_form.is_valid():
+            add_job = add_job_form.save(commit=False)
+            add_job_form.job = job
+            add_job_form.save()
+        else:
+            add_job_form = AddJobListingForm()
+        
+        return render(
+            request,
+            'add_job_listing.html',
+            {
+                'add_job': add_job,
+            
+           
+            
+            }
+        )
+
 
 class EditJobListingView(generic.UpdateView):
     """
@@ -99,6 +123,8 @@ class EditJobListingView(generic.UpdateView):
     #     'title', 'employer', 'location', 'salary', 'postition_type',
     #     'description'
     # ]
+
+    
 
 
 class DeleteJobListingView(generic.DeleteView):
@@ -124,15 +150,14 @@ class JobApplicationsView(generic.ListView):
 
 class JobApplicationDetailsView(generic.DetailView):
 
-
     def get(self, request, pk,  *args, **kwargs):
         # queryset = JobListing.objects.all()
         # job = get_object_or_404(queryset)
         
         queryset2 = CoverLetter.objects.all()
-        cover_letter = get_object_or_404(queryset2, pk=pk)
+        application = get_object_or_404(queryset2, pk=pk)
 
-        joblisting = cover_letter.jobs
+        joblisting = application.jobs
 
         return render(
             request,
@@ -140,13 +165,16 @@ class JobApplicationDetailsView(generic.DetailView):
             {
                 'job': joblisting,
                 # 'submited': False,
-                'cover_letter': cover_letter
+                'application': application
             }
         )
 
 
 class JobSave(View):
+    """
+        Allows for the toggling of job saves.
 
+    """
     def post(self, request, slug):
         job = get_object_or_404(JobListing, slug=slug)
 
@@ -156,3 +184,23 @@ class JobSave(View):
             job.saves.add(request.user)
         
         return HttpResponseRedirect(reverse('job_details', args=[slug]))
+
+
+class UserProfilePage(generic.DetailView):
+    """
+        Pulls details from the UserProfile model so that user details
+         can be rendered on the site
+    """
+
+    def get(self, request, *args, **kwargs):
+        queryset = UserProfile.objects.filter(id=self.request.user.id)
+        user = get_object_or_404(queryset)
+
+        return render(
+            request,
+            'user_profile_details.html',
+            {
+                'user': user,
+            
+            }
+        )

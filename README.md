@@ -81,56 +81,80 @@ Agile Development
  ## Features
 
 ### Navigation
+The navigation bar on the top of the page reflects 3 different stages of the site. 
+First stage is for a user or admin that is not signed in. It shows an option to log in or register
+    Signed out
+Second stage is that or a logged in user. The Nav bar then shows an option to edit user profile or view job listings
+    Signed in
+The third stage is where an ADMIN is logged in, this has more access to the site, it allows the admin to add a new job listing and view applicants for the jobs posted. 
+       Signed in as admin
+        
 
-        Signed in
-        Signed out
-        Signed in as admin
-        Nav bar 
 
-    Images
+### Images
         Show images used for the sites 
 
 
-    Authorisation pages 
+### Authorisation pages 
+For the site we have the ability to register and sign in for the site. This functionality is provided through the DJANGO framework and allows for automatic authorisation of the new or existing user. 
+
         Sign in 
         Sign Out
         Sign register
 
-    Job Listing Page
+### Job Listing Page
+The Job listing page is located in two sections of the site. 
+First, it is seen on the home page of the site, where a user is greeted and encouraged to view jobs or to register for the site.
+Once this is completed, the user may view the job listings with the ability to apply for jobs they find applealing.  
+
         Shows the listings of the jobs
 
-    Job Add Page 
+### Job Add Page 
+The ADMIN had the sole role of adding new job listings to the site. 
+The add job page has a form that contains all the fields which need to be filled out so that it can be validated and sent to a database. 
+
         Allows the addition for new jobs - message to approve by admin 
     
-    JOb edit
+### JOb edit
+The ADMIN had the sole role of editing listings on the site. 
+The page form come prepopulated with the current details of the job and once all the relevant fields are updated, the form can be sent out to be re-listed on the site. 
+
         Allows to edit/update jobs 
 
 
-    JOb Delete
+### Job Delete
+The ADMIN had the sole role of deleting a job listings on the site. 
+The page shows a warning message 
+
         Allows to delete the job only as super user
     
-    Job Details Page
+### Job Details Page/ Job Application Page
+The details page shows the all the advertised details for the job. This page can be viewed if a user is logged in, or if a user is browsing through job sites and wishes to see what jobs are available without having to register. 
+This page also has an application section. This section can only be viewed if the user is logged in. 
         Shows the full details of tghe job posting 
 
-    Job ApplicATION Page
+    
         Shows cover letter summernote area to allow the user to enter details only if logged in 
 
-    Contact details 
+### Contact details 
+The contact details for the company can be found in the footer of the page 
         PLaced in footer
 
-    Pagination
+### Pagination
+Pagination of the listings allows for the display of a limited amount of jobs on one page before being asked to go to the next page if there are more than 5 job listings. 
         Allows to show a certain number of items on pages before moving tyo another opage
 
-    Adding Modals as defensive programing
+### Adding Modals as defensive programing
+Modals are used here as a way to ask the user if they wish to either complete an update or the deletion of a job listing. This prevents the accidental deletion of ajob listing.
         Add a modal to show that a deleption is irreversible 
 
-Testing 
+## Testing 
     Either manual or automatic
 
-Deployment 
+## Deployment 
     Full spread of how to deploy the site from the beggining
 
-Tech Used 
+## Tech Used 
     python
     Django
     Heroku
@@ -141,7 +165,10 @@ Tech Used
     Boostrap
     Font Awesome
     Balsamiq
-    
+
+## Sources
+
+## Credits
 
     
     
