@@ -2,7 +2,7 @@ from django.urls import path
 from .views import (
     JobListingView, JobListingDetail, AddJobListingView, EditJobListingView,
     DeleteJobListingView, JobApplicationsView, JobApplicationDetailsView,
-    JobSave, UserProfilePage
+    JobSave, UserProfilePage, EditUserProfileView
 
 )
 
@@ -30,9 +30,16 @@ urlpatterns = [
         name='application_details'
         ),
     path(
-        'user-profile-details', UserProfilePage.as_view(),
-        name='user_details'
+        'profile/', UserProfilePage.as_view(),
+        name='user_profile'
         ),
+    path(
+        'edit-profile/<int:pk>/', EditUserProfileView.as_view(),
+        name='edit_user_profile'
+        ),
+    path(
+        'saved-jobs/', JobSave.as_view(), name='saved_job_listing'
+    ),
     path('<slug:slug>/', JobListingDetail.as_view(), name='job_details'),
     path('saved/<slug:slug>', JobSave.as_view(), name='job_save'),
 ]

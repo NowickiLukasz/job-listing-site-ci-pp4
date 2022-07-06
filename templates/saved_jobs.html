@@ -2,25 +2,12 @@
 
 
 {% block content %}
-
-Applicants page 
-
+Saved Jobs
 
 
-{% for applicant in coverletter_list %}
+{% for saved_job in jobsavelist_list %}
 <div class="container mt-4">
-    <div class="card" id="job-listing">
-    <h5 class="card-header">
-        {{ applicant.full_name }} 
-    </h5>
-        <div class="card-body">
-            <h5 class="card-title">{{ applicant.jobs.title }}</h5>
-            <h5 class="card-title">{{ applicant.jobs.location }} </h5>            
-            <h5 class="card-title">{{ applicant.created_on }}</h5>
-            <a href="{% url 'application_details' applicant.pk %}" class="btn btn-primary">View Application</a>
-            
-        </div>
-    </div>
+    
 </div>
 {% endfor %}
 

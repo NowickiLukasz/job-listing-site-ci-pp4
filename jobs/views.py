@@ -4,10 +4,10 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from .models import JobListing, CoverLetter, UserProfile
 from .forms import (
-    CoverLetterForm, AddJobListingForm, EditJobListingForm
+    CoverLetterForm, AddJobListingForm, EditJobListingForm,
+    EditUserProfileForm
     ) 
 
-# Create your views here.
 
 class JobListingView(generic.ListView):
     """
@@ -79,20 +79,14 @@ class AddJobListingView(generic.CreateView):
     """
 
     model = JobListing
-    # queryset = JobListing.objects.all()
     template_name = 'add_job_listing.html'
     form_class = AddJobListingForm
 
-    # fields = [
-    #     'title', 'location', 'salary', 'postition_type',
-    #     'description'
-    # ]
     
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
     
-
 
 class EditJobListingView(generic.UpdateView):
     """
@@ -103,12 +97,6 @@ class EditJobListingView(generic.UpdateView):
     template_name = 'edit_job_listing.html'
     queryset = JobListing.objects.all()
     form_class = EditJobListingForm
-    # fields = [
-    #     'title', 'employer', 'location', 'salary', 'postition_type',
-    #     'description'
-    # ]
-
-    
 
 
 class DeleteJobListingView(generic.DeleteView):
@@ -135,11 +123,8 @@ class JobApplicationsView(generic.ListView):
 class JobApplicationDetailsView(generic.DetailView):
 
     def get(self, request, pk,  *args, **kwargs):
-        # queryset = JobListing.objects.all()
-        # job = get_object_or_404(queryset)
-        
-        queryset2 = CoverLetter.objects.all()
-        application = get_object_or_404(queryset2, pk=pk)
+        queryset = CoverLetter.objects.all()
+        application = get_object_or_404(queryset, pk=pk)
 
         joblisting = application.jobs
 
@@ -170,21 +155,51 @@ class JobSave(View):
         return HttpResponseRedirect(reverse('job_details', args=[slug]))
 
 
-class UserProfilePage(generic.DetailView):
+class JobSaveList(generic.ListView):
+    """
+        Displays saved jobs 
+
+    """
+    def post(self, request):
+        saved_job = JobListing.filter(saves=request.user)
+        return render(
+            request,
+            'saved_jobs.html',
+            {
+                'saved_job': saved_job
+            }
+        )
+
+
+class UserProfilePage(View):
     """
         Pulls details from the UserProfile model so that user details
          can be rendered on the site
     """
 
     def get(self, request, *args, **kwargs):
-        queryset = UserProfile.objects.filter(id=self.request.user.id)
-        user = get_object_or_404(queryset)
-
+        user_details = UserProfile.objects.get(user=request.user)
+        
         return render(
             request,
-            'user_profile_details.html',
+            'user_profile.html',
             {
-                'user': user,
-            
+                'user_details': user_details,
             }
         )
+
+
+class EditUserProfileView(generic.UpdateView):
+
+    """
+        Allows for the editing of an existing user profile
+    """
+    model = UserProfile
+    queryset = UserProfile.objects.all()
+    template_name = 'edit_user_profile.html'
+    form_class = EditUserProfileForm
+    success_url = reverse_lazy('home')
+
+    # def get_object(self):
+    #     return self.request.user
+  

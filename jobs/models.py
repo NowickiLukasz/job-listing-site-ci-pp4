@@ -70,11 +70,9 @@ class UserProfile(models.Model):
         ('mr', 'mr'), ('ms', 'ms'), ('mrs', 'mrs')
     )
     user = models.OneToOneField(
-        User, on_delete=models.CASCADE, related_name="user_profile", default='1'
+        User, on_delete=models.CASCADE, related_name="user_profile"
         )
     title = models.CharField(max_length=10, choices=TITLE)
-    # first_name = models.CharField(max_length=50)
-    # last_name = models.CharField(max_length=50)
     date_of_birth = models.DateField()
     country = CountryField()
     gender = models.CharField(max_length=15, choices=GENDERS, default="Female")
