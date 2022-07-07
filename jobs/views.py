@@ -6,7 +6,7 @@ from .models import JobListing, CoverLetter, UserProfile
 from .forms import (
     CoverLetterForm, AddJobListingForm, EditJobListingForm,
     EditUserProfileForm
-    ) 
+    )
 
 
 class JobListingView(generic.ListView):
@@ -194,6 +194,9 @@ class EditUserProfileView(generic.UpdateView):
     """
         Allows for the editing of an existing user profile
     """
+
+    
+
     model = UserProfile
     queryset = UserProfile.objects.all()
     template_name = 'edit_user_profile.html'
