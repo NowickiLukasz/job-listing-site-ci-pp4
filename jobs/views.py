@@ -160,13 +160,20 @@ class JobSaveList(generic.ListView):
         Displays saved jobs 
 
     """
-    def post(self, request):
-        saved_job = JobListing.filter(saves=request.user)
+    # model = JobListing
+    # queryset = JobListing.objects.all()
+    # template_name = 'saved_jobs.html'
+    # paginate_by = 5
+
+
+    def get(self, request):
+        saved_jobs = JobListing.objects.filter(saves=self.request.user)
+        
         return render(
             request,
             'saved_jobs.html',
             {
-                'saved_job': saved_job
+                'saved_jobs': saved_jobs
             }
         )
 
@@ -194,15 +201,8 @@ class EditUserProfileView(generic.UpdateView):
     """
         Allows for the editing of an existing user profile
     """
-
-    
-
     model = UserProfile
     queryset = UserProfile.objects.all()
     template_name = 'edit_user_profile.html'
     form_class = EditUserProfileForm
     success_url = reverse_lazy('home')
-
-    # def get_object(self):
-    #     return self.request.user
-  

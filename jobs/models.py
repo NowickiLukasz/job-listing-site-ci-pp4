@@ -78,3 +78,9 @@ class UserProfile(models.Model):
     gender = models.CharField(max_length=15, choices=GENDERS, default="Female")
     bio = models.TextField(default='Please enter a bio')
 
+    # @receiver(post_save, sender=User)
+    # def create_or_update_user_profile(self, sender, instance, created, **kwargs):
+    #     if created:
+    #         UserProfile.objects.create(user=instance)
+    #     # Otherwise just save/update profile
+    #     instance.userprofile.save()
