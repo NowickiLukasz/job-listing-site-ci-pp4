@@ -7,15 +7,14 @@ User details
 <div class="container">
         <div class="row">
                 <div class="col">
-                        <a href="{% url 'edit_user_profile' user_details.id %} ">Edit</a>
-                        <p>Tilte: {{ user_details.title }}</p>
-                        <p>First Name: {{user_details.user.first_name}}</p>
-                        <p>Last Name: {{user_details.user.last_name}}</p>
-                        <p>Date of Birth: {{ user_details.date_of_birth }}</p>
-                        <p>Nationality: {{ user_details.country }}</p>
-                        <p>Gender: {{ user_details.gender }}</p>
-                        <p>Bio:</p>
-                        <p>{{ user_details.bio }}</p>
+                        <h3>Tilte: {{ user_details.title }}</h3>
+                        <h3>First Name: {{user_details.user.first_name}}</h3>
+                        <h3>Last Name: {{user_details.user.last_name}}</h3>
+                        <h3>Date of Birth: {{ user_details.date_of_birth }}</h3>
+                        <h3>Nationality: {{ user_details.country }}</h3>
+                        <h3>Gender: {{ user_details.gender }}</h3>
+                        <h3>Bio:</h3>
+                        <h3>{{ user_details.bio }}</h3>
                         
 
                 </div>

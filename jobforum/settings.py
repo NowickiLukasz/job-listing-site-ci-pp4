@@ -65,6 +65,10 @@ SITE_ID = 1
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
+ACCOUNT_FORMS = {
+'signup': 'jobs.forms.CustomSignupForm',
+}
+
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
     messages.INFO: 'alert-info',
