@@ -160,12 +160,6 @@ class JobSaveList(generic.ListView):
         Displays saved jobs 
 
     """
-    # model = JobListing
-    # queryset = JobListing.objects.all()
-    # template_name = 'saved_jobs.html'
-    # paginate_by = 5
-
-
     def get(self, request):
         saved_jobs = JobListing.objects.filter(saves=self.request.user)
         

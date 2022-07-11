@@ -57,7 +57,7 @@ INSTALLED_APPS = [
     'django_countries',
     'django_summernote',
     'crispy_forms',
-    'jobs'
+    'jobs.apps.JobsConfig'
 ]
 
 SITE_ID = 1

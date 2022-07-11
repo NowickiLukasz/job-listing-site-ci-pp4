@@ -1,4 +1,7 @@
 from django.db import models
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+from django.conf import settings
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django_countries.fields import CountryField
@@ -73,14 +76,8 @@ class UserProfile(models.Model):
         User, on_delete=models.CASCADE, related_name="user_profile"
         )
     title = models.CharField(max_length=10, choices=TITLE)
-    date_of_birth = models.DateField()
+    date_of_birth = models.DateField(null=True)
     country = CountryField()
     gender = models.CharField(max_length=15, choices=GENDERS, default="Female")
     bio = models.TextField(default='Please enter a bio')
 
-    # @receiver(post_save, sender=User)
-    # def create_or_update_user_profile(self, sender, instance, created, **kwargs):
-    #     if created:
-    #         UserProfile.objects.create(user=instance)
-    #     # Otherwise just save/update profile
-    #     instance.userprofile.save()
