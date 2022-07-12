@@ -67,7 +67,7 @@ class UserProfile(models.Model):
 
     GENDERS = (("MALE", "MALE"), ("FEMALE", "FEMALE"), ("OTHER", "OTHER"))
     TITLE = (
-        ('mr', 'mr'), ('ms', 'ms'), ('mrs', 'mrs')
+        ('MR', 'MR'), ('MS', 'MS'), ('MRS', 'MRS')
     )
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name="user_profile"

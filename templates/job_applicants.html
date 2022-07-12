@@ -11,7 +11,7 @@ Applicants page
 <div class="container mt-4">
     <div class="card" id="job-listing">
     <h5 class="card-header">
-        {{ applicant.full_name }} 
+        {{ applicant.full_name }} - <a href="{% url 'user_profile' profile.pk %}">Go to profile</a>
     </h5>
         <div class="card-body">
             <h5 class="card-title">{{ applicant.jobs.title }}</h5>

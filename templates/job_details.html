@@ -17,9 +17,10 @@
                     <form action="{% url 'job_save' job.slug %}" method="POST">
                         {% csrf_token %}
                         {% if saves %}
-                        <button type="submit" value="{{ job.slug }}" class="btn"><i class="fas fa-heart"></i></button>
+                        
+                        <button type="submit" value="{{ job.slug }}" class="btn"><i class="fas fa-heart"></i><p>Have you applied already? Let's discard the saved job. </p></button>
                         {% else %}
-                        <button type="submit" value="{{ job.slug }}" class="btn"><i class="far fa-heart"></i></button>
+                        <button type="submit" value="{{ job.slug }}" class="btn"><i class="far fa-heart"></i><p></p>Like a job? Save it here!</button>
 
                         {% endif %}
                     </form>
