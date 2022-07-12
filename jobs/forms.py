@@ -82,7 +82,9 @@ class EditUserProfileForm(forms.ModelForm):
                 
             }
 
+
 class CustomSignupForm(SignupForm):
+
     first_name = forms.CharField(
         max_length=30, label='First Name', 
         widget=forms.TextInput(attrs={'placeholder': 'First Name'}))

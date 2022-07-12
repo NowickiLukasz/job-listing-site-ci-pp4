@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -19,11 +20,11 @@ class JobListingView(generic.ListView):
     paginate_by = 5
 
 
-class JobListingDetail(generic.DetailView):
+class JobListingDetail(LoginRequiredMixin, generic.DetailView):
     """
         Allows the details of a job listing to be viewed
     """
-
+    
     def get(self, request, slug, *args, **kwargs):
         queryset = JobListing.objects.filter(composed_status=1)
         job = get_object_or_404(queryset, slug=slug)
@@ -73,7 +74,7 @@ class JobListingDetail(generic.DetailView):
         )
 
 
-class AddJobListingView(generic.CreateView):
+class AddJobListingView(LoginRequiredMixin, generic.CreateView):
     """
         Allows for the creation of a new jobs listing
     """
@@ -88,7 +89,7 @@ class AddJobListingView(generic.CreateView):
         return super().form_valid(form)
     
 
-class EditJobListingView(generic.UpdateView):
+class EditJobListingView(LoginRequiredMixin, generic.UpdateView):
     """
         Allows for the editing of an existing job listing
     """
@@ -99,7 +100,7 @@ class EditJobListingView(generic.UpdateView):
     form_class = EditJobListingForm
 
 
-class DeleteJobListingView(generic.DeleteView):
+class DeleteJobListingView(LoginRequiredMixin, generic.DeleteView):
     """
         Allows for the deletion of a jobs listing
     """
@@ -110,7 +111,7 @@ class DeleteJobListingView(generic.DeleteView):
     success_url = reverse_lazy("job_listing")
 
 
-class JobApplicationsView(generic.ListView):
+class JobApplicationsView(LoginRequiredMixin, generic.ListView):
     """
         Displays a list view of all the job applications
     """
@@ -120,7 +121,7 @@ class JobApplicationsView(generic.ListView):
     querysetlist = CoverLetter.objects.all()
 
 
-class JobApplicationDetailsView(generic.DetailView):
+class JobApplicationDetailsView(LoginRequiredMixin, generic.DetailView):
 
     def get(self, request, pk,  *args, **kwargs):
         queryset = CoverLetter.objects.all()
@@ -139,7 +140,7 @@ class JobApplicationDetailsView(generic.DetailView):
         )
 
 
-class JobSave(View):
+class JobSave(LoginRequiredMixin, View):
     """
         Allows for the toggling of job saves.
 
@@ -155,7 +156,7 @@ class JobSave(View):
         return HttpResponseRedirect(reverse('job_details', args=[slug]))
 
 
-class JobSaveList(generic.ListView):
+class JobSaveList(LoginRequiredMixin, generic.ListView):
     """
         Displays saved jobs 
 
@@ -190,7 +191,7 @@ class UserProfilePage(View):
         )
 
 
-class EditUserProfileView(generic.UpdateView):
+class EditUserProfileView(LoginRequiredMixin, generic.UpdateView):
 
     """
         Allows for the editing of an existing user profile

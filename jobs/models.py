@@ -25,7 +25,7 @@ class JobListing(models.Model):
     description = models.TextField()
     updated_on = models.DateTimeField(auto_now=True)
     saves = models.ManyToManyField(User, related_name='saved_jobs', blank=True)
-    created_on = models.DateTimeField(auto_now_add=True)
+    created_on = models.DateField(auto_now_add=True)
     composed_status = models.IntegerField(choices=STATUS, default=0)
     
     class Meta:
@@ -33,9 +33,6 @@ class JobListing(models.Model):
 
     def __str__(self):
         return self.title
-
-    def numbers_of_times_saved(self):
-        return self.saves.count()
 
     def get_absolute_url(self):
         return reverse('job_listing')

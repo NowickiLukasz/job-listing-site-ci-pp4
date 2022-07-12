@@ -8,7 +8,6 @@ def create_profile(sender, instance, created, **kwargs):
             user=instance,
             
         )
-    print('Profile Created')
 
 
 post_save.connect(create_profile, sender=User)

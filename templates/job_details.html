@@ -29,7 +29,7 @@
                     <h2>Job Title: {{ job.title }} 
                         
                     </h2>
-                    <h4>Created on: {{ job.created_on }}</h4>
+                    <h4>Posted on: {{ job.created_on }}</h4>
                     <h4>Location: {{ job.location }}</h4>
                     <h4>Salary: {{ job.salary }}</h4>
                     <h4>Position Type: {{ job.postition_type }}</h4>
@@ -38,10 +38,10 @@
                     <p>{{ job.description | safe}}</p>
                     <hr>
                     <h4>Cover Letter: </h4>
-                    <p>{{ cover_letter | crispy }}</p> 
+                    <p id="cover-letter-form" >{{ cover_letter | crispy }}</p> 
                     
                     {% csrf_token %}
-                    <input type="submit" value="Submit cover letter">
+                    <input id="submit-application" type="submit" value="Submit cover letter">
                 </form>
                 {% endif %}
 
