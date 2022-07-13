@@ -3,22 +3,24 @@
 
 {% block content %}
 
-{% for job in joblisting_list %}
+<h1>Drafts</h1>
+
+{% for draft in drafts %}
 <div class="container mt-4">
     <div class="card" id="job-listing">
     <h5 class="card-header">
-        <i class="fa-solid fa-tag"></i> {{ job.title }} 
+        <i class="fa-solid fa-tag"></i> {{ draft.title }} 
         
         {% if user.is_superuser %}
-        <a href="{% url 'edit_job' job.pk %}"><i class="fa-solid fa-pencil"></i></a>
-        <a href="{% url 'delete_job' job.pk %}"><i class="fa-solid fa-trash-can"></i></a>
+        <a href="{% url 'edit_job' draft.pk %}"><i class="fa-solid fa-pencil"></i></a>
+        <a href="{% url 'delete_job' draft.pk %}"><i class="fa-solid fa-trash-can"></i></a>
         {% endif %}
     </h5>
         <div class="card-body">
-            <h5 class="card-title"><i class="fa-solid fa-house"></i> || {{ job.location }} </h5>
-            <p class="card-title"><i class="fa-solid fa-clock"></i> || {{ job.postition_type }} </p>
-            <p class="card-title"><i class="fa-solid fa-euro-sign"></i> || {{ job.salary }}/hr </p>
-            <a href="{% url 'job_details' job.slug %}" class="btn btn-primary">View Details</a>
+            <h5 class="card-title"><i class="fa-solid fa-house"></i> || {{ draft.location }} </h5>
+            <p class="card-title"><i class="fa-solid fa-clock"></i> || {{ draft.postition_type }} </p>
+            <p class="card-title"><i class="fa-solid fa-euro-sign"></i> || {{ draft.salary }}/hr </p>
+            <a href="{% url 'job_details' draft.slug %}" class="btn btn-primary">View Details</a>
 
 
             

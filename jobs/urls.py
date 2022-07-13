@@ -2,7 +2,8 @@ from django.urls import path
 from .views import (
     JobListingView, JobListingDetail, AddJobListingView, EditJobListingView,
     DeleteJobListingView, JobApplicationsView, JobApplicationDetailsView,
-    JobSave, UserProfilePage, EditUserProfileView, JobSaveList
+    JobSave, UserProfilePage, EditUserProfileView, JobSaveList,
+    DisplayDraftJob
 )
 
 urlpatterns = [
@@ -45,6 +46,10 @@ urlpatterns = [
     # Displays liked/saved jobs
     path(
         'saved-jobs/', JobSaveList.as_view(), name='saved_job_listing'
+    ),
+    # Displays jobs that have not bee published yet
+    path(
+        'drafts/', DisplayDraftJob.as_view(), name='drafts'
     ),
     # Displays published job listings
     path('<slug:slug>/', JobListingDetail.as_view(), name='job_details'),

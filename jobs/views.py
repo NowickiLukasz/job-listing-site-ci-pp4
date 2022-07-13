@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
+ 
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -83,6 +84,7 @@ class AddJobListingView(LoginRequiredMixin, generic.CreateView):
     template_name = 'add_job_listing.html'
     form_class = AddJobListingForm
 
+   
     
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -201,3 +203,29 @@ class EditUserProfileView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'edit_user_profile.html'
     form_class = EditUserProfileForm
     success_url = reverse_lazy('home')
+
+
+class DisplayDraftJob(LoginRequiredMixin, generic.ListView):
+    """
+        Allows the Admin User to display job listings that are not published 
+        yet
+    """
+    # paginate_by = 5
+    def get(self, request):
+        drafts = JobListing.objects.filter(composed_status=0)
+        
+        return render(
+            request,
+            'drafts.html',
+            {
+                'drafts': drafts,
+            }
+        )
+    # model = JobListing
+    # queryset = JobListing.objects.filter(composed_status=1)
+    # template_name = 'drafts.html'
+
+    # model = JobListing
+    # queryset = JobListing.objects.filter(composed_status=0)
+    # template_name = 'drafts.html'
+    # paginate_by = 5

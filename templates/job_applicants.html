@@ -3,7 +3,7 @@
 
 {% block content %}
 
-Applicants page 
+<h1 id="applicants-heading">Job Applications</h1>
 
 
 
@@ -11,12 +11,12 @@ Applicants page
 <div class="container mt-4">
     <div class="card" id="job-listing">
     <h5 class="card-header">
-        {{ applicant.full_name }} - <a href="{% url 'user_profile' profile.pk %}">Go to profile</a>
+        {{ applicant.full_name }} 
     </h5>
         <div class="card-body">
-            <h5 class="card-title">{{ applicant.jobs.title }}</h5>
-            <h5 class="card-title">{{ applicant.jobs.location }} </h5>            
-            <h5 class="card-title">{{ applicant.created_on }}</h5>
+            <h5 class="card-title"><i class="fa-solid fa-tag"></i> {{ applicant.jobs.title }}</h5>
+            <h5 class="card-title"><i class="fa-solid fa-house"></i> {{ applicant.jobs.location }} </h5>            
+            <h5 class="card-title"><i class="fa-solid fa-calendar-days"></i> {{ applicant.created_on }}</h5>
             <a href="{% url 'application_details' applicant.pk %}" class="btn btn-primary">View Application</a>
             
         </div>

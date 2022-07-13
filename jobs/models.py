@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from django_countries.fields import CountryField
 from django.urls import reverse
+from django.utils.text import slugify
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -36,6 +37,10 @@ class JobListing(models.Model):
 
     def get_absolute_url(self):
         return reverse('job_listing')
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(JobListing, self).save(*args, **kwargs)
 
 
 class CoverLetter(models.Model):
@@ -78,3 +83,5 @@ class UserProfile(models.Model):
     gender = models.CharField(max_length=15, choices=GENDERS, default="Female")
     bio = models.TextField(default='Please enter a bio')
 
+    def __str__(self):
+        return self.user.first_name + ' ' + self.user.last_name
