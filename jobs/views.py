@@ -205,12 +205,11 @@ class EditUserProfileView(LoginRequiredMixin, generic.UpdateView):
     success_url = reverse_lazy('home')
 
 
-class DisplayDraftJob(LoginRequiredMixin, generic.ListView):
+class DisplayDraftJobList(LoginRequiredMixin, generic.ListView):
     """
         Allows the Admin User to display job listings that are not published 
         yet
     """
-    # paginate_by = 5
     def get(self, request):
         drafts = JobListing.objects.filter(composed_status=0)
         
@@ -221,11 +220,25 @@ class DisplayDraftJob(LoginRequiredMixin, generic.ListView):
                 'drafts': drafts,
             }
         )
-    # model = JobListing
-    # queryset = JobListing.objects.filter(composed_status=1)
-    # template_name = 'drafts.html'
 
-    # model = JobListing
-    # queryset = JobListing.objects.filter(composed_status=0)
-    # template_name = 'drafts.html'
-    # paginate_by = 5
+
+class DraftJobListingDetail(LoginRequiredMixin, generic.DetailView):
+    """
+        Allows the details of a job listing to be viewed
+    """
+    
+    def get(self, request, slug, *args, **kwargs):
+        if request.user.is_superuser:
+            queryset = JobListing.objects.filter(composed_status=0)
+            job = get_object_or_404(queryset, slug=slug)
+
+
+            return render(
+                request,
+                'draft_details.html',
+                {
+                    'job': job,
+                }
+            )
+        else:
+            return HttpResponseRedirect(reverse('home'))

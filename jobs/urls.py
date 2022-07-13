@@ -3,7 +3,7 @@ from .views import (
     JobListingView, JobListingDetail, AddJobListingView, EditJobListingView,
     DeleteJobListingView, JobApplicationsView, JobApplicationDetailsView,
     JobSave, UserProfilePage, EditUserProfileView, JobSaveList,
-    DisplayDraftJob
+    DisplayDraftJobList, DraftJobListingDetail
 )
 
 urlpatterns = [
@@ -47,9 +47,14 @@ urlpatterns = [
     path(
         'saved-jobs/', JobSaveList.as_view(), name='saved_job_listing'
     ),
-    # Displays jobs that have not bee published yet
+    # Displays jobs that have not been published yet
     path(
-        'drafts/', DisplayDraftJob.as_view(), name='drafts'
+        'drafts/', DisplayDraftJobList.as_view(), name='drafts'
+    ),
+    # Displays job details for draft jobs
+    path(
+        'draft-job-detals/<slug:slug>', DraftJobListingDetail.as_view(),
+        name='draft_details'
     ),
     # Displays published job listings
     path('<slug:slug>/', JobListingDetail.as_view(), name='job_details'),
