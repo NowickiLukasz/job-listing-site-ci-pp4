@@ -6,14 +6,16 @@
 <h1>Drafts</h1>
 
 {% for draft in drafts %}
-<div class="container mt-4">
-    <div class="card" id="job-listing">
+<div id="drafts" class="container mt-4">
+    <div class="card">
     <h5 class="card-header">
         <i class="fa-solid fa-tag"></i> {{ draft.title }} 
         
         {% if user.is_superuser %}
+        <span class="edit-delete-right">
         <a href="{% url 'edit_job' draft.pk %}"><i class="fa-solid fa-pencil"></i></a>
         <a href="{% url 'delete_job' draft.pk %}"><i class="fa-solid fa-trash-can"></i></a>
+        </span>
         {% endif %}
     </h5>
         <div class="card-body">

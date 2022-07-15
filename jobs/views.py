@@ -4,6 +4,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
 from .models import JobListing, CoverLetter, UserProfile
 from .forms import (
     CoverLetterForm, AddJobListingForm, EditJobListingForm,
@@ -181,14 +182,17 @@ class UserProfilePage(View):
          can be rendered on the site
     """
 
-    def get(self, request, *args, **kwargs):
-        user_details = UserProfile.objects.get(user=request.user)
+    def get(self, request, pk, *args, **kwargs):
+        # user_details = UserProfile.objects.all()
+        user = get_object_or_404(User, pk=pk)
+        user_details = get_object_or_404(UserProfile, user=user)
         
         return render(
             request,
             'user_profile.html',
             {
                 'user_details': user_details,
+                # 'user_profile': user_profile,
             }
         )
 
@@ -231,7 +235,6 @@ class DraftJobListingDetail(LoginRequiredMixin, generic.DetailView):
         if request.user.is_superuser:
             queryset = JobListing.objects.filter(composed_status=0)
             job = get_object_or_404(queryset, slug=slug)
-
 
             return render(
                 request,

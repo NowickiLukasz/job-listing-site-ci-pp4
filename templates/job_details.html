@@ -5,7 +5,7 @@
 
 {% load crispy_forms_tags %}
 
-<div class="container">
+<div id="job-details" class="container">
     <div class="row">
         <div class="col">
             <div class="card-body">
@@ -28,7 +28,9 @@
                 
                 <form method="POST" action="#">
                     <h2>Job Title: {{ job.title }} 
-                        
+                        <span>
+                            
+                        </span>
                     </h2>
                     <h4>Posted on: {{ job.created_on }}</h4>
                     <h4>Location: {{ job.location }}</h4>

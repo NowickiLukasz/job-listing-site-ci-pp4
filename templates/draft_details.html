@@ -14,7 +14,8 @@
                 {% else %} -->
                 {% if user.is_authenticated %}
                 
-                
+                <a href="{% url 'edit_job' job.pk %}"><i class="fa-solid fa-pencil"></i></a>
+                <a href="{% url 'delete_job' job.pk %}"><i class="fa-solid fa-trash-can"></i></a>
                 <form method="POST" action="#">
                     <h2>Job Title: {{ job.title }} 
                         

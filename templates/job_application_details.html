@@ -5,7 +5,7 @@
 {% load crispy_forms_tags %}
 
 Job application cover letter
-<div class="container">
+<div id="application-details" class="container">
         <div class="row">
                 <div class="col">
                         <h2>Job Title: {{ job.title }}</h2>
@@ -16,7 +16,7 @@ Job application cover letter
                         <h4>Description:</h4>
                         <p>{{ job.description | safe}}</p>
                         <hr>
-                        <h4>Applicant Username: {{ application.full_name}}</h4>
+                        <h4>Applicant Username: <a href="{% url 'user_profile' application.user.id %}">{{application.full_name}}</a> </h4>
                         <hr>
                         <h4>Cover Letter: </h4>
                         

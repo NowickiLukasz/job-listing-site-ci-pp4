@@ -2,17 +2,21 @@
 
 
 {% block content %}
-
+<!-- <img src=" {{ home-page.url }}"> -->
 {% for job in joblisting_list %}
-<div class="container mt-4">
-    <div class="card" id="job-listing">
+
+<div id="job-listing"  class="container">
+    <div class="card" >
     <h5 class="card-header">
         <i class="fa-solid fa-tag"></i> {{ job.title }} 
         
         {% if user.is_superuser %}
+        <span class="edit-delete-right">
         <a href="{% url 'edit_job' job.pk %}"><i class="fa-solid fa-pencil"></i></a>
         <a href="{% url 'delete_job' job.pk %}"><i class="fa-solid fa-trash-can"></i></a>
+        </span>
         {% endif %}
+
     </h5>
         <div class="card-body">
             <h5 class="card-title"><i class="fa-solid fa-house"></i> || {{ job.location }} </h5>

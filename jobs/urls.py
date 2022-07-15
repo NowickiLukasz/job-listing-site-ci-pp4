@@ -33,9 +33,9 @@ urlpatterns = [
         JobApplicationDetailsView.as_view(),
         name='application_details'
         ),
-    # Diaplays user profile details
+    # Diaplays any user profile details
     path(
-        'profile/', UserProfilePage.as_view(),
+        'profile/<int:pk>', UserProfilePage.as_view(),
         name='user_profile'
         ),
     # Allows to edit profile details
