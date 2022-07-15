@@ -1,6 +1,5 @@
-from .models import UserProfile
 from django.contrib.auth.models import User
-
+from .models import UserProfile
 
 def get_profile(request):
 
@@ -11,8 +10,9 @@ def get_profile(request):
         profile = None
 
     context = {
+        # 'user': user,
         'profile': profile,
-        'user': user
+        
     }
 
     return context

@@ -17,6 +17,7 @@
                 <a href="{% url 'edit_job' job.pk %}"><i class="fa-solid fa-pencil"></i></a>
                 <a href="{% url 'delete_job' job.pk %}"><i class="fa-solid fa-trash-can"></i></a>
                 <form method="POST" action="#">
+                    {% csrf_token %}
                     <h2>Job Title: {{ job.title }} 
                         
                     </h2>
@@ -27,7 +28,7 @@
                     <hr>
                     <h4>Description:</h4>
                     <p>{{ job.description | safe}}</p>
-                    
+                    <input type="submit" value="Publish Job">
                 </form>
                 {% endif %}
 

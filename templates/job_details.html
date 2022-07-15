@@ -41,6 +41,7 @@
                     <p>{{ job.description | safe}}</p>
                     <hr>
                     <h4>Cover Letter: </h4>
+                    <p>Please provide your EMAIL and PHONE number in the cover letter</p>
                     <p id="cover-letter-form" >{{ cover_letter | crispy }}</p> 
                     
                     {% csrf_token %}

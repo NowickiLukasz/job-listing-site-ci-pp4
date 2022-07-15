@@ -38,6 +38,11 @@ urlpatterns = [
         'profile/<int:pk>', UserProfilePage.as_view(),
         name='user_profile'
         ),
+    # # Display current user profile
+    # path(
+    #     'profile/', UserProfilePage.as_view(),
+    #     name='current_user_profile'
+    # ),
     # Allows to edit profile details
     path(
         'edit-profile/<int:pk>/', EditUserProfileView.as_view(),

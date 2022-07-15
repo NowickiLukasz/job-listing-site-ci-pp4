@@ -3,15 +3,22 @@
 
 {% block content %}
 
-Delete Job
 
-you are going to delete this listing. are you sure?
+<div id="delete-job" class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Delete Job</h1>
+            <p>You are going to delete this listing. Are you sure?</p>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Delete">
-</form>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Delete">
+            </form>
+        </div>
+    </div>
+</div>
+
 
 
 {% endblock %}

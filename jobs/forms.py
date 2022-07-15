@@ -13,7 +13,7 @@ class CoverLetterForm(forms.ModelForm):
         )
 
         widgets = {
-            'cover_letter': SummernoteWidget(attrs={'class': 'form-control'}),
+            'cover_letter': forms.Textarea()
             
         }
 

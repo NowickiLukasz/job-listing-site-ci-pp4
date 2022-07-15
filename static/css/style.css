@@ -14,8 +14,18 @@
     padding-top: 2%;
 }
 
-#application-details{
-    border: 2px solid black
+#application-details, #profile-details{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#delete-job, #logout, #login{
+    width: 50%;
+    text-align: center;
+    margin-top: 100px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
 }
 
 .edit-delete-right{
@@ -29,6 +39,7 @@
 #job-details{
     /* background-color: rgba(59, 105, 241, 0.197); */
     border: 2px solid black;
+    border-radius: 5px;
 }
 
 #job-listing{
@@ -36,9 +47,11 @@
 }
 
 body{
-    background-color: #E5E8B6;
+    background-color: white;
     padding-bottom: 60px;
    
 }
 
-
+h1{
+    text-align: center;
+}

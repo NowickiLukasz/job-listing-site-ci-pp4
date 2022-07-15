@@ -24,7 +24,7 @@ class JobAdmin(SummernoteModelAdmin):
 @admin.register(CoverLetter)
 class CoverLetterAdmin(SummernoteModelAdmin):
 
-    list_display = ('full_name', 'jobs', 'location', 'created_on')
+    list_display = ('full_name', 'jobs', 'created_on')
     list_filter = ('created_on', 'postition_type')
     summernote_fields = ('cover_letter')
     
