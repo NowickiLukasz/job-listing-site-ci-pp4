@@ -246,6 +246,8 @@ class DraftJobListingDetail(LoginRequiredMixin, generic.DetailView):
         else:
             return HttpResponseRedirect(reverse('home'))
 
-    # def post(self, request, slug, *args, **kwargs):
-    #     queryset = JobListing.objects.filter(composed_status=0)
-    #     job = get_object_or_404(queryset, slug=slug)
+    def post(self, request, slug, *args, **kwargs):
+        queryset = JobListing.objects.filter(composed_status=0)
+        job = get_object_or_404(queryset, slug=slug)
+
+       

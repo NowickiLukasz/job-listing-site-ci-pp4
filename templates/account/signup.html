@@ -6,9 +6,9 @@
 
 {% block content %}
 
-<div class="container">
+<div id="register" class="container">
   <div class="row">
-    <div class="col-md-8 mt-4">
+    <div class="col">
 
       <h1>{% trans "Sign Up" %}</h1>
 
@@ -18,7 +18,7 @@
   </div>
     
   <div class="row">
-    <div class="col-md-8 mt-4">
+    <div class="col">
 
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}

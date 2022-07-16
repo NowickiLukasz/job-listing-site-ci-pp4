@@ -3,20 +3,20 @@ The site here created is used to post job applications from a single organisatio
 
 Table of content
 
-planning
-    Site aims
-        The aim of this site is the create a fictional company in need of employees. 
+## Planning
+### Site aims
+The aim of this site is the create a fictional company in need of employees. 
 
-        The site will have a single employer who will be able to add new job listings, edit current ones and delete ones that do not need to be advertised anymore. 
+The site will have a single employer who will be able to add new job listings, edit current ones and delete ones that do not need to be advertised anymore. 
 
-        The Employer will be able to keep jobs in draft mode untill they are ready to publish them. 
+The Employer will be able to keep jobs in draft mode untill they are ready to publish them. 
 
-        While the Employer will be able to see the job applications from registered users. 
-        The user wil be able to view the job listings and select which eveer one they deem most suitable for themselves. 
+While the Employer will be able to see the job applications from registered users. 
+The user wil be able to view the job listings and select which eveer one they deem most suitable for themselves. 
 
-        They will be able to submit a cover letter to a specific job. 
-    
-    Scope
+They will be able to submit a cover letter to a specific job. 
+
+## Scope
 - Must have **USER** functions
     - User can login /logout
     - User can view job listings
@@ -46,13 +46,12 @@ planning
     - Employer details 
 
     
-    Structure
+## Structure
         Show how the site works in base functiuonality drawing
 
-        Wireframes
+### Wireframes
 
-    User stories
-        Show what has been planned to allow the user to use the site functionaly 
+## User stories
 
 | Number | User Story                 | Description                                                 | Competed    |
 | :----: | :----:                     |    :----:                                                   |         :----:|
@@ -98,46 +97,152 @@ The third stage is where an ADMIN is logged in, this has more access to the site
 ### Authorisation pages 
 For the site we have the ability to register and sign in for the site. This functionality is provided through the DJANGO framework and allows for automatic authorisation of the new or existing user. 
 
-        Sign in 
-        Sign Out
-        Sign register
+<details>
+<summary>Sign In page</summary>
+<br>
+<img src="./assets/images/sign-in.png">
+</details>
+
+<details>
+<summary>Sign Out Page</summary>
+<br>
+<img src="./assets/images/sign-out.png">
+</details>
+
+<details>
+<summary>Register</summary>
+<br>
+<img src="./assets/images/register.png">
+</details>
+
+<br>
+
+
+
 
 ### Job Listing Page
 The Job listing page is located in two sections of the site. 
 First, it is seen on the home page of the site, where a user is greeted and encouraged to view jobs or to register for the site.
 Once this is completed, the user may view the job listings with the ability to apply for jobs they find applealing.  
 
-        Shows the listings of the jobs
+<details>
+<summary>Job Listing Page</summary>
+<br>
+<img src="./assets/images/job-listing.png">
+</details>
+
+<br>
 
 ### Job Add Page 
 The ADMIN had the sole role of adding new job listings to the site. 
 The add job page has a form that contains all the fields which need to be filled out so that it can be validated and sent to a database. 
 
-        Allows the addition for new jobs - message to approve by admin 
-    
+<details>
+<summary>Job Add Page</summary>
+<br>
+<img src="./assets/images/add-job.png">
+</details>
+
+<br>
+
 ### Job edit
 The ADMIN had the sole role of editing listings on the site. 
-The page form come prepopulated with the current details of the job and once all the relevant fields are updated, the form can be sent out to be re-listed on the site. 
+The page form comes prepopulated with the current details of the job and once all the relevant fields are updated, the form can be sent out to be re-listed on the site. 
 
-        Allows to edit/update jobs 
+<details>
+<summary>Edit Job</summary>
+<br>
+<img src="./assets/images/edit-job.png">
+</details>
+
+<br> 
 
 
 ### Job Delete
 The ADMIN had the sole role of deleting a job listings on the site. 
 The page shows a warning message 
 
-        Allows to delete the job only as super user
+<details>
+<summary>Delete Job</summary>
+<br>
+<img src="./assets/images/delete-job.png">
+</details>
+
+<br>
     
 ### Job Details Page/ Job Application Page
-The details page shows the all the advertised details for the job. This page can be viewed if a user is logged in, or if a user is browsing through job sites and wishes to see what jobs are available without having to register. 
+The details page shows the all the advertised details for the job. This page can be viewed if a user is logged in only.  
 This page also has an application section. This section can only be viewed if the user is logged in. 
-        Shows the full details of tghe job posting 
 
-    
-        Shows cover letter summernote area to allow the user to enter details only if logged in 
+<details>
+<summary>Job Details</summary>
+<br>
+<img src="./assets/images/job-details.png">
+</details>
+
+<br>
+
+<details>
+<summary>Application Section</summary>
+<br>
+<img src="./assets/images/job-cover-letter-apply.png">
+</details>
+
+<br>
 
 ### Admin Job Drafts Page
 The admin may view job listings that have not yeyt been published. The job listing then may be edited, deleted or published to the site so that new applicants may apply for the job.
+
+<details>
+<summary>Drafts</summary>
+<br>
+<img src="./assets/images/drafts.png">
+</details>
+
+<br>
+
+### Admin View applications
+The Admin is solely able to view applications that have been submited by the users. 
+This section allows the admin to view the details of the posted job, the cover letter and a link to the applicants profile
+
+<details>
+<summary>Job Applications Section</summary>
+<br>
+<img src="./assets/images/job-applications.png">
+</details>
+
+<br>
+
+<details>
+<summary>Job Application Details</summary>
+<br>
+<img src="./assets/images/job-application-details.png">
+</details>
+
+<br>
+
+### Profile
+Users may fill out their details in their own profile page. This page is linked to each job application they take part in. 
+
+<details>
+<summary>Profile Page</summary>
+<br>
+<img src="./assets/images/profile-page.png">
+</details>
+
+<br>
+
+### Edit Profile
+The user has the ability to update their profile details including their bio. 
+
+<details>
+<summary>Edit Profile Page</summary>
+<br>
+<img src="./assets/images/edit-profile-page.png">
+</details>
+
+<br>
+
 
 ### Contact details 
 The contact details for the company can be found in the footer of the page 

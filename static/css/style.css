@@ -14,15 +14,15 @@
     padding-top: 2%;
 }
 
-#application-details, #profile-details{
+#application-details, #profile-details {
     border: 2px solid black;
     border-radius: 5px;
 }
 
-#delete-job, #logout, #login{
+#delete-job, #logout, #login,#register{
     width: 50%;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 50px;
     border: 2px solid black;
     border-radius: 5px;
     padding: 10px;

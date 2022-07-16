@@ -4,7 +4,8 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
-Job application cover letter
+<h1>Job Application Cover Letter</h1>
+
 <div id="application-details" class="container">
         <div class="row">
                 <div class="col">
@@ -21,7 +22,7 @@ Job application cover letter
                         <h4>Cover Letter: </h4>
                         
                         <p>{{ application.cover_letter | safe }}</p>
-                        <p>{{ application.created_on }}</p>
+                        <p>Applied on: {{ application.created_on }}</p>
                 </div>
         </div>
 </div>
