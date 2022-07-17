@@ -4,7 +4,9 @@
 {% block content %}
 
 {% load crispy_forms_tags %}
+<h1>Apply for a Job Here</h1>
 
+<img class="head-img" src="https://res.cloudinary.com/dap68aklo/image/upload/v1656171249/apply-img_oxafuu.avif">
 <div id="job-details" class="container">
     <div class="row">
         <div class="col">
@@ -12,6 +14,7 @@
                 <!-- {% if submited %}
                     submited
                 {% else %} -->
+                
                 {% if user.is_authenticated %}
                 {% if user.is_authenticated %}
                     <form action="{% url 'job_save' job.slug %}" method="POST">

@@ -10,7 +10,7 @@
 }
 
 #application-details, #drafts, #job-details, #job-listing, #saved-jobs{
-    width: 70%;
+    width: 55%;
     padding-top: 2%;
 }
 
@@ -19,6 +19,7 @@
     border-radius: 5px;
 }
 
+/*  Authentication section */
 #delete-job, #logout, #login,#register{
     width: 50%;
     text-align: center;
@@ -50,11 +51,12 @@
     /* background-color: rgba(59, 105, 241, 0.197); */
     border: 2px solid black;
     border-radius: 5px;
+    margin-top: 50px;;
 }
 
-#job-listing{
+/* #job-listing{
     padding-top: 2%;
-}
+} */
 
 body{
     background-color: white;
