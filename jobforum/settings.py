@@ -68,6 +68,20 @@ ACCOUNT_FORMS = {
     'signup': 'jobs.forms.CustomSignupForm',
 }
 
+SUMMERNOTE_CONFIG = {
+    'summernote': {
+        'width': '100%',
+
+         'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+        ],
+    }
+}
+
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
     messages.INFO: 'alert-info',
