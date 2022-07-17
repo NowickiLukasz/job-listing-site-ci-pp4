@@ -32,6 +32,16 @@
     float: right;
 }
 
+.head-img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40vh;
+    width: auto;
+    border-radius: 50%;
+    border: 2px solid black;
+}
+
 #nav-bar{
     background-color: #7D869C;
 }

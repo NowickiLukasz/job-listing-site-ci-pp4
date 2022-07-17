@@ -1,11 +1,8 @@
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from django.conf import settings
-from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
-from django_countries.fields import CountryField
 from django.urls import reverse
+from django.contrib.auth.models import User
+from django_countries.fields import CountryField
+
 from django.utils.text import slugify
 
 
@@ -38,6 +35,8 @@ class JobListing(models.Model):
     def get_absolute_url(self):
         return reverse('job_listing')
 
+    # Auto creating slugs for unpublished job listings
+    # (https://stackoverflow.com/questions/50436658/how-to-auto-generate-slug-from-my-album-model-in-django-2-0-4)
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(JobListing, self).save(*args, **kwargs)

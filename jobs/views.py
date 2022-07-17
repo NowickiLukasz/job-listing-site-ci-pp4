@@ -85,8 +85,6 @@ class AddJobListingView(LoginRequiredMixin, generic.CreateView):
     template_name = 'add_job_listing.html'
     form_class = AddJobListingForm
 
-   
-    
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
@@ -142,7 +140,8 @@ class JobApplicationDetailsView(LoginRequiredMixin, generic.DetailView):
             }
         )
 
-
+# Adding job listings to favourites
+# (https://www.youtube.com/watch?v=1XiJvIuvqhs&ab_channel=AbhishekVerma)
 class JobSave(LoginRequiredMixin, View):
     """
         Allows for the toggling of job saves.
@@ -183,7 +182,6 @@ class UserProfilePage(View):
     """
 
     def get(self, request, pk, *args, **kwargs):
-        # user_details = UserProfile.objects.all()
         user = get_object_or_404(User, pk=pk)
         user_details = get_object_or_404(UserProfile, user=user)
         
@@ -192,7 +190,6 @@ class UserProfilePage(View):
             'user_profile.html',
             {
                 'user_details': user_details,
-                # 'user_profile': user_profile,
             }
         )
 
@@ -214,6 +211,7 @@ class DisplayDraftJobList(LoginRequiredMixin, generic.ListView):
         Allows the Admin User to display job listings that are not published 
         yet
     """
+    
     def get(self, request):
         drafts = JobListing.objects.filter(composed_status=0)
         
