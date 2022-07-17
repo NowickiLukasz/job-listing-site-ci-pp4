@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
- 
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
@@ -60,6 +61,7 @@ class JobListingDetail(LoginRequiredMixin, generic.DetailView):
             cover_letter = cover_letter_form.save(commit=False)
             cover_letter.user = request.user
             cover_letter.jobs = job
+            messages.success(request, f"You have succesfully applied")
             cover_letter.save()
         else:
             cover_letter_form = CoverLetterForm()
@@ -76,7 +78,7 @@ class JobListingDetail(LoginRequiredMixin, generic.DetailView):
         )
 
 
-class AddJobListingView(LoginRequiredMixin, generic.CreateView):
+class AddJobListingView(SuccessMessageMixin, LoginRequiredMixin, generic.CreateView):
     """
         Allows for the creation of a new jobs listing
     """
@@ -84,13 +86,14 @@ class AddJobListingView(LoginRequiredMixin, generic.CreateView):
     model = JobListing
     template_name = 'add_job_listing.html'
     form_class = AddJobListingForm
+    success_message = "Job Has Been Sent to Drafts"
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
     
 
-class EditJobListingView(LoginRequiredMixin, generic.UpdateView):
+class EditJobListingView(SuccessMessageMixin, LoginRequiredMixin, generic.UpdateView):
     """
         Allows for the editing of an existing job listing
     """
@@ -99,9 +102,13 @@ class EditJobListingView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'edit_job_listing.html'
     queryset = JobListing.objects.all()
     form_class = EditJobListingForm
+    success_message = "Job has been successfully updated"
 
 
-class DeleteJobListingView(LoginRequiredMixin, generic.DeleteView):
+class DeleteJobListingView(
+                SuccessMessageMixin, LoginRequiredMixin, 
+                generic.DeleteView
+                ):
     """
         Allows for the deletion of a jobs listing
     """
@@ -110,6 +117,7 @@ class DeleteJobListingView(LoginRequiredMixin, generic.DeleteView):
     template_name = 'delete_job_listing.html'
     queryset = JobListing.objects.all()
     success_url = reverse_lazy("job_listing")
+    success_message = "Job has been deleted"
 
 
 class JobApplicationsView(LoginRequiredMixin, generic.ListView):
@@ -135,7 +143,6 @@ class JobApplicationDetailsView(LoginRequiredMixin, generic.DetailView):
             'job_application_details.html',
             {
                 'job': joblisting,
-                # 'submited': False,
                 'application': application
             }
         )
@@ -151,9 +158,13 @@ class JobSave(LoginRequiredMixin, View):
         job = get_object_or_404(JobListing, slug=slug)
 
         if job.saves.filter(id=request.user.id).exists():
+            messages.success(
+                request, f"You have removed this job from your favourites"
+                )
             job.saves.remove(request.user)
         else:
             job.saves.add(request.user)
+            messages.success(request, f"Job saved ")
         
         return HttpResponseRedirect(reverse('job_details', args=[slug]))
 
@@ -194,7 +205,7 @@ class UserProfilePage(View):
         )
 
 
-class EditUserProfileView(LoginRequiredMixin, generic.UpdateView):
+class EditUserProfileView(SuccessMessageMixin, LoginRequiredMixin, generic.UpdateView):
 
     """
         Allows for the editing of an existing user profile
@@ -204,6 +215,7 @@ class EditUserProfileView(LoginRequiredMixin, generic.UpdateView):
     template_name = 'edit_user_profile.html'
     form_class = EditUserProfileForm
     success_url = reverse_lazy('home')
+    success_message = "Profile was Updated Succesfully"
 
 
 class DisplayDraftJobList(LoginRequiredMixin, generic.ListView):

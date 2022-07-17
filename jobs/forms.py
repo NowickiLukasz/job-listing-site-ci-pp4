@@ -1,4 +1,5 @@
 from allauth.account.forms import SignupForm
+from django.contrib.auth.models import User
 from .models import CoverLetter, JobListing, UserProfile
 from django import forms
 from django_summernote.widgets import SummernoteWidget
@@ -27,7 +28,7 @@ class AddJobListingForm(forms.ModelForm):
         model = JobListing
         fields = (
             'title', 'location', 'salary', 'postition_type',
-            'description',
+            'description'
         )
 
         widgets = {
@@ -50,7 +51,7 @@ class EditJobListingForm(forms.ModelForm):
         model = JobListing
         fields = (
             'title', 'location', 'salary', 'postition_type',
-            'description',
+            'description'
         )
 
         widgets = {
@@ -92,8 +93,6 @@ class CustomSignupForm(SignupForm):
         max_length=30, label='Last Name', 
         widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
 
-   
- 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
         user.first_name = self.cleaned_data['first_name']
