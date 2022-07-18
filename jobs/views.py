@@ -41,7 +41,6 @@ class JobListingDetail(LoginRequiredMixin, generic.DetailView):
             {
                 'job': job,
                 'saves': saves,
-                # 'submited': False,
                 'cover_letter': CoverLetterForm()
             }
         )
@@ -106,7 +105,7 @@ class EditJobListingView(SuccessMessageMixin, LoginRequiredMixin, generic.Update
 
 
 class DeleteJobListingView(
-                SuccessMessageMixin, LoginRequiredMixin, 
+                SuccessMessageMixin, LoginRequiredMixin,
                 generic.DeleteView
                 ):
     """
@@ -131,6 +130,9 @@ class JobApplicationsView(LoginRequiredMixin, generic.ListView):
 
 
 class JobApplicationDetailsView(LoginRequiredMixin, generic.DetailView):
+    """
+    Displays job details and the users application
+    """
 
     def get(self, request, pk,  *args, **kwargs):
         queryset = CoverLetter.objects.all()
@@ -157,6 +159,7 @@ class JobSave(LoginRequiredMixin, View):
     def post(self, request, slug):
         job = get_object_or_404(JobListing, slug=slug)
 
+        # 
         if job.saves.filter(id=request.user.id).exists():
             messages.success(
                 request, f"You have removed this job from your favourites"
@@ -260,4 +263,8 @@ class DraftJobListingDetail(LoginRequiredMixin, generic.DetailView):
         queryset = JobListing.objects.filter(composed_status=0)
         job = get_object_or_404(queryset, slug=slug)
 
-       
+        if job.composed_status == 0:
+            job.composed_status = 1
+            job.save()
+
+        return HttpResponseRedirect(reverse('home'))

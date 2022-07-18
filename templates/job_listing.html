@@ -3,7 +3,7 @@
 
 {% block content %}
 <h1>Job Listings</h1>
-<img class="head-img" src="https://res.cloudinary.com/dap68aklo/image/upload/v1656171249/home_riqxfj.avif" alt="For hire sign">
+<!-- <img class="head-img" src="https://res.cloudinary.com/dap68aklo/image/upload/v1656171249/home_riqxfj.avif" alt="For hire sign"> -->
 {% for job in joblisting_list %}
 
 <div id="job-listing"  class="container">
@@ -30,6 +30,8 @@
         </div>
     </div>
 </div>
+{% empty %}
+   <h3>There are no job listings yet. Add some jobs and publish them from the drafts panel to view them here.</h3>
 {% endfor %}
 
 {% if is_paginated %}

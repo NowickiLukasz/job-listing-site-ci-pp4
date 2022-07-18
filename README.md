@@ -342,10 +342,13 @@ Once code changes have been completed and tested on localhost, the application c
     - (https://www.youtube.com/watch?v=1XiJvIuvqhs&ab_channel=AbhishekVerma)
 
 
+
 ## Credits
 - Inspiration taken from: how to build job portal
     - (https://techvidvan.com/tutorials/online-job-portal-python-django/)
 - Inspiration taken from: How to build a blog
     - (https://www.youtube.com/watch?v=B40bteAMM_M&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&ab_channel=Codemy.com)
+- Messages 
+    - (https://pythonprogramming.net/messages-django-tutorial/)
     
     
