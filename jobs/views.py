@@ -262,9 +262,11 @@ class DraftJobListingDetail(LoginRequiredMixin, generic.DetailView):
     def post(self, request, slug, *args, **kwargs):
         queryset = JobListing.objects.filter(composed_status=0)
         job = get_object_or_404(queryset, slug=slug)
-
         if job.composed_status == 0:
             job.composed_status = 1
+            messages.success(
+                request, f"You have succesfully posted the job.")
             job.save()
 
+        
         return HttpResponseRedirect(reverse('home'))

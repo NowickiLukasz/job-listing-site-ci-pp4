@@ -77,7 +77,10 @@ class EditUserProfileForm(forms.ModelForm):
                 'title': forms.Select(attrs={'class': 'form-control'}),
                 'location': forms.TextInput(attrs={'class': 'form-control'}),
                 'country': forms.Select(attrs={'class': 'form-control'}),
-                'date_of_birth': forms.DateInput(attrs={'class': 'form-control'}),
+                'date_of_birth': forms.DateInput(
+                    attrs={
+                        'class': 'form-control', 'placeholder': 'YYYY-MM-DD'
+                        }),
                 'gender': forms.Select(attrs={'class': 'form-control'}),
                 'bio': SummernoteWidget(attrs={'class': 'form-control'}),
                 
@@ -90,7 +93,7 @@ class CustomSignupForm(SignupForm):
         max_length=30, label='First Name', 
         widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
     last_name = forms.CharField(
-        max_length=30, label='Last Name', 
+        max_length=30, label='Last Name',
         widget=forms.TextInput(attrs={'placeholder': 'Last Name'}))
 
     def save(self, request):

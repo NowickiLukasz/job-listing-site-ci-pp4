@@ -74,6 +74,8 @@ They will be able to submit a cover letter to a specific job.
 #17      | View Job Listings   | As a USER I can VIEW JOB LISTINGS so that CHOOSE WHAT JOB I WAN TO APPLY FOR        | Yes      |
 #18      | Add Job   | As a EMPLOYER I can ADD A NEW JOB TO THE LISTINGS so that I CAN ADVERTISE JOB OPENINGS FROM THE COMPANY        |  Yes    |
 #19      |View and publish draft jobs| As a ADMIN I can VIEW, EDIT and PUBLISH JOBS so that NEW JOB LISTINGS CAN BE VIEWED BY THE APPLICANTS| Yes
+
+
 Agile Development
 
 
@@ -82,12 +84,30 @@ Agile Development
 ### Navigation
 The navigation bar on the top of the page reflects 3 different stages of the site. 
 First stage is for a user or admin that is not signed in. It shows an option to log in or register
-    Signed out
+    
+<details>
+<summary>Signed out</summary>
+<br>
+<img src="./assets/images/signed-out.png">
+</details>
+
 Second stage is that or a logged in user. The Nav bar then shows an option to edit user profile or view job listings
-    Signed in
+
+<details>
+<summary>Signed in</summary>
+<br>
+<img src="./assets/images/user-signed-in.png">
+</details>
+
 The third stage is where an ADMIN is logged in, this has more access to the site, it allows the admin to add a new job listing and view applicants for the jobs posted. 
-       Signed in as admin
-        
+
+<details>
+<summary>Signed in as admin</summary>
+<br>
+<img src="./assets/images/admin-signed-in.png">
+</details>
+
+<br>
 
 
 ### Images
@@ -244,13 +264,16 @@ The user has the ability to update their profile details including their bio.
 <br>
 
 
-### Contact details 
-The contact details for the company can be found in the footer of the page 
-        PLaced in footer
-
 ### Pagination
 Pagination of the listings allows for the display of a limited amount of jobs on one page before being asked to go to the next page if there are more than 5 job listings. 
-        Allows to show a certain number of items on pages before moving tyo another opage
+
+<details>
+<summary>Pagination</summary>
+<br>
+<img src="./assets/images/pagination.png">
+</details>
+
+<br>
 
 ### Adding Modals as defensive programing
 Modals are used here as a way to ask the user if they wish to either complete an update or the deletion of a job listing. This prevents the accidental deletion of ajob listing.
@@ -261,55 +284,145 @@ Modals are used here as a way to ask the user if they wish to either complete an
 
 ## Deployment 
 
-### How to Clone the Repository 
+### Setting up the Workspace:
 
-- Go to the https://github.com/NowickiLukasz/job-listing-site-ci-pp4 repository on GitHub 
-- Click the "Code" button to the right of the screen, click HTTPs and copy the link there
-- Open a GitBash terminal and navigate to the directory where you want to locate the clone
-- On the command line, type "git clone" then paste in the copied url and press the Enter key to begin the clone process
-- To install the packages required by the application use the command : pip install -r requirements.txt
-- When developing and running the application locally set DEBUG=True in the settings.py file
-- Changes made to the local clone can be pushed back to the repository using the following commands :
+1. Install Django with version 3.2:
+    * ```pip install django3.2 ```
+2. Install gunicorn:
+    * ```pip install gunicorn```
+3. Install supporting libraries:
+    * ```pip install dj_database_url psycopg2```
+    * ```pip install dj3-cloudinary-storage```
+4. Create requirements.txt:
+    * ```pip freeze --local > requirements.txt```
+5. Create an empty folder for your project in your chosen location.
+6. Create a project in the above folder:
+    * django-admin startproject <PROJECT_NAME> 
+7. Create an app within the project:
+    * ```python manage.py startapp APP_NAME``` 
+8. Add a new app to the list of installed apps in setting.py
+9. Migrate changes: 
+    * ```python manage.py migrate```
+10. Test server works locally: 
+    * ```python manage.py runserver```  (You should see the default Django success page)
 
-  - git add *filenames*  (or "." to add all changed files)
-  - git commit -m *"text message describing changes"*
-  - git push
+### Create Heroku App:
+The below works on the assumption that you already have an account with [Heroku](https://id.heroku.com/login) and are already signed in.
+1. Create a new Heroku app:
+    * Click "New" in the top right-hand corner of the landing page, then click "Create new app."
+2. Give the app a unique name:
+    * Will form part of the URL 
+3. Select the nearest location:
+    * For me, this was Europe.
+4. Add Database to the Heroku app:
+    * Navigate to the Resources tab of the app dashboard. Under the heading "Add ons," search for "Heroku Postgres" and click on it when it appears. 
+    * Select "Hobby Dev - Free" from the "plan name" drop-down menu and click "Submit Order Form."
+5. From your editor, go to your projects settings.py file and copy the SECRET_KEY variable. Add this to the same name variable under the Heroku App's config vars.
+    * left box under config vars (variable KEY) = SECRET_KEY
+    * right box under config vars (variable VALUE) = Value copied from settings.py in project.
 
-- N.B. Any changes pushed to the master branch will take effect on the live project once the application is re-deployed from Heroku
+### Creating Environmental Variables Locally:
 
-### Create Application and Postgres DB on Heroku
-- Log in to Heroku at https://heroku.com - create an account if needed.
-- From the Heroku dashboard, click the Create new app button.  For a new account an icon will be visible on screen to allow you to Create an app, otherwise a link to this function is located under the New dropdown menu at the top right of the screen.
-- On the Create New App page, enter a unique name for the application and select region.  Then click Create app.
-- On the Application Configuration page for the new app, click on the Resources tab.
-- In the Add-ons search bar enter "Postgres" and select "Heroku Postgres" from the list - click the "Submit Order Form" button on the pop-up dialog.
-- Next, click on Settings on the Application Configuration page and click on the "Reveal Config Vars" button - check the DATABASE_URL has been automatically set up. 
-- Add a new Config Var called DISABLE_COLLECTSTATIC and assign it a value of 1.
-- Add a new Config Var called SECRET_KEY and assign it a value - any random string of letters, digits and symbols.
-- The settings.py file should be updated to use the DATABASE_URL and SECRET_KEY environment variable values as follows :
+1. On your local machine, create a file called ".env" at the same level as settings.py and add this to the .gitignore file.
+2. From the Heroku app settings tab, click "reveal config vars" and copy the value of the variable DATABASE_URL. Add this value to a variable called DATABASE_URL in your create .env file:
+    * ``` DATABASE_URL=PastedValueFromHerokuHere ```
+3. From your projects settings.py file, copy the SECRET_KEY value and assign it to a variable called SECRET_KEY in your .env file
+    * ``` SECRET_KEY=PastedValueFromYourProjectsSettings.pyFile ```
+4. Add DEVELOPMENT variable to .env file:
+    * ``` DEVELOPMENT=development ```
+5. Add CLOUDINARY_URL variable to .env file:
+    * Log into cloudinary and from the dashboard copy the API Environmental Variable.
+    * Add to .env file like below
+        * ``` CLOUDINARY_URL=PastedApiEnvironmentalVariable ```
 
-  - DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
 
-  - SECRET_KEY = os.environ.get('SECRET_KEY')
+### Setting up setting.py File:
+1. At the top of your settings.py file, add the following snippet immediately after the other imports:
+    ``` 
+        import os
+        import dj_database_url
+        if os.path.isfile('env.py'):  
 
-- In Gitpod, in the project terminal window, to initialize the data model in the postgres database, run the command : python3 manage.py migrate 
-- Make sure the project requirements.txt file is up to date with all necessary supporting files by entering the command : pip3 freeze --local > requirements.txt
-- Commit and push any local changes to GitHub.
-- In order to be able to run the application on localhost, add SECRECT_KEY and DATABASE_URL and their values to env.py
+        SECRET_KEY = os.environ.get("SECRET_KEY")
+        DEBUG = True
+    ``` 
+2. Delete the value from the setting.py DATABASES section and replace it with the following snippet to link up the Heroku Postgres server:  
+   
+    ```
+    DATABASES = {
+    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    }
+    ```
 
-### Configure Cloudinary to host images used by the application
-- Log in to Cloudinary - create an account if needed.  To create the account provide your name, email and set up a password.  For "primary interest" you can choose "Programmable Media for image and video API".  Click "Create Account" and you will be sent an email to verify your account and bring you to the dashboard.
-- From the dashboard, copy the "API Environment variable" value by clicking on the "Copy to clipboard" link.
-- Log in to Heroku and go to the Application Configuration page for the application.  Click on Settings and click on the "Reveal Config Vars" button.
-- Add a new Config Var called CLOUDINARY_URL and assign it the value copied from the Cloudinary dashboard, but remove the "CLOUDINARY_URL=" at the beginning of the string. 
-- In order to be able to run the application on localhost, also add the CLOUDINARY_URL environment variable and value to env.py
+3. Add Cloudinary libraries to the installed apps section of settings.py file:
+   
+   ```
+    INSTALLED_APPS = [
+   …,
+   'cloudinary_storage',
+   'django.contrib.staticfiles',
+   'cloudinary',
+   …,
+   ]
+   (note: order is important)
+   ```
 
-### Connect the Heroku app to the GitHub repository
-- Go to the Application Configuration page for the application on Heroku and click on the Deploy tab.
-- Select GitHub as the Deployment Method and if prompted, confirm that you want to connect to GitHub. Enter the name of the github repository (the one used for this project is (https://github.com/NowickiLukasz/job-listing-site-ci-pp4) and click on Connect to link up the Heroku app to the GitHub repository code.
-- Scroll down the page and choose to either Automatically Deploy each time changes are pushed to GitHub, or Manually deploy - for this project Manual Deploy was selected.
-- The application can be run from the Application Configuration page by clicking on the Open App button.
-- The live link for this project is (https://job-forum-ci.herokuapp.com/)
+4. Tell Django to use Cloudinary to store media and static files by placing this snippet under the comments indicated below:
+```
+    # Static files (CSS, JavaScript, Images)
+    # https://docs.djangoproject.com/en/3.2/howto/static-files/
+    STATIC_URL = '/static/'
+    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
+    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    MEDIA_URL = '/media/'
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+```
+
+5. Under the line with BASE_DIR, link templates directly in Heroku via settings.py:
+   * ``` TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') ```
+
+6. Within TEMPLATES array, add ``` 'DIRS':[TEMPLATES_DIR] ``` like the below example:
+```
+   TEMPLATES = [
+       {
+           …,
+           'DIRS': [TEMPLATES_DIR],
+           …,
+          
+        },
+       },
+   ]
+```
+7. Add allowed hosts to settings.py:
+    * ``` ALLOWED_HOSTS = ["PROJECT_NAME.herokuapp.com", "localhost"] ``` 
+
+8. Create Procfile at the top level of the file structure and insert the following:
+    * ``` web: gunicorn PROJECT_NAME.wsgi ```
+
+9. Make an initial commit and push the code to the GitHub Repository.
+    * ```git add .```
+    * ```git commit -m "Initial deployment"```
+    * ```git push```
+
+### Set up Heroku for use via the console.
+1. Click on Account Settings (under the avatar menu)
+2. Scroll down to the API Key section and click Reveal. Copy the API key.
+3. Log in to Heroku via the console and enter your details.
+    * heroku login-i
+    * When prompted, enter your Heroku username
+    * Enter copied API key as the password
+
+4. Get your app name from Heroku
+    * ```heroku apps```
+5. Set Heroku remote
+    * ```heroku git:remote -a <app_name>```
+6. Add, Commit, Pust to GitHub:
+    * ```git add . && git commit -m "Deploy to Heroku via CLI"```
+7. Push to GitHub and Heroku
+    * ```git push origin main```
+    * ```git push heroku main ```
 
 ### Final Deployment steps
 Once code changes have been completed and tested on localhost, the application can be prepared for Heroku deployment as follows :

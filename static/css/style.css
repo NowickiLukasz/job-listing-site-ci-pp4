@@ -59,7 +59,7 @@ body{
    
 }
 
-h1{
+h1, h3{
     margin-top: 10px;
     text-align: center;
 }
@@ -79,16 +79,17 @@ h1{
         height: 75%;
     }
 } */
-
+/* 
 @media (max-width: 768px) {
     #application-details, #drafts, #job-details, #job-listing, #saved-jobs{
         width: 100%;
         padding-top: 2%;
     }
-}
+} */
 
 @media (max-width: 768px) {
-    #application-details, #drafts, #job-details, #job-listing, #saved-jobs{
+    #application-details, #drafts, #job-details, #job-listing, #saved-jobs,
+    #logout, #login,#register{
         width: 100%;
         padding-top: 2%;
     }
