@@ -269,9 +269,9 @@ Any user that is not authorised to access sensitive pages will be shown a page w
 <details>
 <summary>Not Authorised Page</summary>
 <br>
-<img src="./assets/images/readme-img/edit-profile-page.png">
+<img src="./assets/images/readme-img/restricted-page.png">
 </details>
-
+<br>
 
 ### Pagination
 Pagination of the listings allows for the display of a limited amount of jobs on one page before being asked to go to the next page if there are more than 5 job listings. 
@@ -284,13 +284,8 @@ Pagination of the listings allows for the display of a limited amount of jobs on
 
 <br>
 
-### Adding Modals as defensive programing
-Modals are used here as a way to ask the user if they wish to either complete an update or the deletion of a job listing. This prevents the accidental deletion of a job listing.
-        Add a modal to show that a deleption is irreversible 
-
 ## Testing 
 [TESTING.md](TESTING.md)
-
 
 ## Deployment
 [DEPLOYMENT.md](DEPLOYMENT.md)
