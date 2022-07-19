@@ -3,6 +3,9 @@ from .models import UserProfile
 
 
 def get_profile(request):
+    """
+        Creates a profile context that can be used throught the app
+    """
 
     if request.user.is_authenticated:
         # user = User.objects.get(username=request.user)

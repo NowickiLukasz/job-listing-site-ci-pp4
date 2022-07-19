@@ -5,6 +5,9 @@ from .models import CoverLetter, JobListing, UserProfile
 
 
 class CoverLetterForm(forms.ModelForm):
+    """
+        Allows for the input of a cover letter in application
+    """
     class Meta:
 
         model = CoverLetter
@@ -64,6 +67,10 @@ class EditJobListingForm(forms.ModelForm):
 
 
 class EditUserProfileForm(forms.ModelForm):
+    """
+        Adds fileds to the edit user form in order to 
+        allow user to fill out form. 
+    """
 
     class Meta:
         model = UserProfile
@@ -87,6 +94,10 @@ class EditUserProfileForm(forms.ModelForm):
 
 
 class CustomSignupForm(SignupForm):
+    """
+        Adds first name and last name fields
+        to the user registration form.
+    """
 
     first_name = forms.CharField(
         max_length=30, label='First Name',
