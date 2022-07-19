@@ -38,7 +38,7 @@ class JobListingDetail(LoginRequiredMixin, generic.DetailView):
     """
         Allows the details of a job listing to be viewed
     """
-    
+
     def get(self, request, slug, *args, **kwargs):
         """
             displays single job listing with details
@@ -61,11 +61,11 @@ class JobListingDetail(LoginRequiredMixin, generic.DetailView):
                 'cover_letter': CoverLetterForm()
             }
         )
-    
+
     def post(self, request, slug, *args, **kwargs):
         """
             posts data fromt he cover letter form to the database,
-            validates the form, if form is valid sends a message 
+            validates the form, if form is valid sends a message
             to user and returns joblisting page
         """
         queryset = JobListing.objects.filter(composed_status=1)
@@ -75,7 +75,7 @@ class JobListingDetail(LoginRequiredMixin, generic.DetailView):
             saves = True
 
         cover_letter_form = CoverLetterForm(data=request.POST)
-        
+
         if cover_letter_form.is_valid():
             # sets full name instance to username
             cover_letter_form.instance.full_name = request.user.username
@@ -86,17 +86,15 @@ class JobListingDetail(LoginRequiredMixin, generic.DetailView):
             cover_letter.save()
         else:
             cover_letter_form = CoverLetterForm()
-        
-        return HttpResponseRedirect(reverse('job_listing')) 
-        
+
+        return HttpResponseRedirect(reverse('job_listing'))
 
 
 class AddJobListingView(
-        SuperuserRequiredMixin, SuccessMessageMixin, generic.CreateView
-    ):
+        SuperuserRequiredMixin, SuccessMessageMixin, generic.CreateView):
     """
         Allows for the creation of a new jobs listing,
-        accepts only users with permissions and validates the form. 
+        accepts only users with permissions and validates the form.
     """
 
     model = JobListing
@@ -107,14 +105,13 @@ class AddJobListingView(
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
-    
+
 
 class EditJobListingView(
-        SuccessMessageMixin, SuperuserRequiredMixin, generic.UpdateView
-    ):
+        SuccessMessageMixin, SuperuserRequiredMixin, generic.UpdateView):
     """
-        Allows for the editing of an existing job listing, 
-        passes SuperuserRequired, 
+        Allows for the editing of an existing job listing,
+        passes SuperuserRequired,
         if successful shows message of success
     """
 
@@ -131,7 +128,7 @@ class DeleteJobListingView(
                 ):
     """
         Allows for the deletion of a jobs listing
-        passes SuperuserRequired, 
+        passes SuperuserRequired,
         if successful shows message of success,
         returns jobs listing page
     """
@@ -157,7 +154,7 @@ class JobApplicationsView(SuperuserRequiredMixin, generic.ListView):
 class JobApplicationDetailsView(SuperuserRequiredMixin, generic.DetailView):
     """
     Displays job details and the users application,
-    passes SuperuserRequired, and primary key to link to 
+    passes SuperuserRequired, and primary key to link to
     only specific job application
     """
 
@@ -197,7 +194,7 @@ class JobSave(LoginRequiredMixin, View):
         else:
             job.saves.add(request.user)
             messages.success(request, "Job saved ")
-        
+
         return HttpResponseRedirect(reverse('job_details', args=[slug]))
 
 
@@ -209,7 +206,7 @@ class JobSaveList(LoginRequiredMixin, generic.ListView):
     """
     def get(self, request):
         saved_jobs = JobListing.objects.filter(saves=self.request.user)
-        
+
         return render(
             request,
             'saved_jobs.html',
@@ -221,14 +218,14 @@ class JobSaveList(LoginRequiredMixin, generic.ListView):
 
 class UserProfilePage(View):
     """
-        Pulls details from the UserProfile model 
+        Pulls details from the UserProfile model
         returns details of a user profile
     """
 
     def get(self, request, pk, *args, **kwargs):
         user = get_object_or_404(User, pk=pk)
         user_details = get_object_or_404(UserProfile, user=user)
-        
+
         return render(
             request,
             'user_profile.html',
@@ -239,8 +236,7 @@ class UserProfilePage(View):
 
 
 class EditUserProfileView(
-        SuccessMessageMixin, SuperuserRequiredMixin, generic.UpdateView
-    ):
+        SuccessMessageMixin, SuperuserRequiredMixin, generic.UpdateView):
 
     """
         Allows for the editing of an existing user profile
@@ -256,7 +252,7 @@ class EditUserProfileView(
 
 class DisplayDraftJobList(SuperuserRequiredMixin, generic.ListView):
     """
-        Allows the Admin User to display job listings that are not published 
+        Allows the Admin User to display job listings that are not published
         yet
     """
 
@@ -276,7 +272,7 @@ class DraftJobListingDetail(SuperuserRequiredMixin, generic.DetailView):
     """
         Allows the details of a job listing to be viewed
     """
-    
+
     def get(self, request, slug, *args, **kwargs):
             queryset = JobListing.objects.filter(composed_status=0)
             job = get_object_or_404(queryset, slug=slug)

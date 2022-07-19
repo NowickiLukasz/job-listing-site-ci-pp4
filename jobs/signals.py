@@ -4,11 +4,16 @@ from .models import UserProfile
 
 # Auto creating user profile with signals
 # (https://ordinarycoders.com/django-custom-user-profile)
+
+
 def create_profile(sender, instance, created, **kwargs):
+    """
+        Automaticaly creates a profile once user is created from registration
+    """
     if created:
         UserProfile.objects.create(
             user=instance,
-            
+
         )
 
 

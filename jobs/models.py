@@ -1,12 +1,8 @@
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
-from django.conf import settings
-from django.contrib.auth.models import User
-from cloudinary.models import CloudinaryField
-from django_countries.fields import CountryField
 from django.urls import reverse
 from django.utils.text import slugify
+from django.contrib.auth.models import User
+from django_countries.fields import CountryField
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -28,7 +24,7 @@ class JobListing(models.Model):
     saves = models.ManyToManyField(User, related_name='saved_jobs', blank=True)
     created_on = models.DateField(auto_now_add=True)
     composed_status = models.IntegerField(choices=STATUS, default=0)
-    
+
     class Meta:
         ordering = ['-created_on']
 
@@ -53,11 +49,13 @@ class CoverLetter(models.Model):
         )
     full_name = models.CharField(max_length=150, default='Full Name')
     title = models.CharField(max_length=150)
-    location = models.CharField(max_length=300) # check do i need
-    postition_type = models.CharField(max_length=20, choices=POSITION_TYPE) # check do i need
+    location = models.CharField(max_length=300)  # check do i need
+    postition_type = models.CharField(
+        max_length=20, choices=POSITION_TYPE
+        )  # check do i need
     cover_letter = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
         ordering = ['-created_on']
 

@@ -1,12 +1,13 @@
 from django.contrib import admin
-from .models import JobListing, CoverLetter, UserProfile
 from django_summernote.admin import SummernoteModelAdmin
+from .models import JobListing, CoverLetter, UserProfile
 
 # Register your models here.
 
+
 @admin.register(JobListing)
 class JobAdmin(SummernoteModelAdmin):
-    
+
     list_display = (
         'title', 'slug', 'composed_status', 'created_on',
         'postition_type',
@@ -27,7 +28,7 @@ class CoverLetterAdmin(SummernoteModelAdmin):
     list_display = ('full_name', 'jobs', 'created_on')
     list_filter = ('created_on', 'postition_type')
     summernote_fields = ('cover_letter')
-    
+
 
 @admin.register(UserProfile)
 class UserProfileAdmin(SummernoteModelAdmin):

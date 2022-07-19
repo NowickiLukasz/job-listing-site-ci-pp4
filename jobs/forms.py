@@ -1,8 +1,7 @@
 from allauth.account.forms import SignupForm
-from django.contrib.auth.models import User
-from .models import CoverLetter, JobListing, UserProfile
 from django import forms
 from django_summernote.widgets import SummernoteWidget
+from .models import CoverLetter, JobListing, UserProfile
 
 
 class CoverLetterForm(forms.ModelForm):
@@ -15,7 +14,7 @@ class CoverLetterForm(forms.ModelForm):
 
         widgets = {
             'cover_letter': SummernoteWidget(attrs={'class': 'form-control'}),
-            
+
         }
 
 
@@ -38,7 +37,7 @@ class AddJobListingForm(forms.ModelForm):
             'salary': forms.NumberInput(attrs={'class': 'form-control'}),
             'postition_type': forms.Select(attrs={'class': 'form-control'}),
             'description': SummernoteWidget(attrs={'class': 'form-control'}),
-            
+
         }
 
 
@@ -60,12 +59,12 @@ class EditJobListingForm(forms.ModelForm):
             'salary': forms.NumberInput(attrs={'class': 'form-control'}),
             'postition_type': forms.Select(attrs={'class': 'form-control'}),
             'description': SummernoteWidget(attrs={'class': 'form-control'}),
-            
+
         }
 
 
 class EditUserProfileForm(forms.ModelForm):
-    
+
     class Meta:
         model = UserProfile
         fields = (
@@ -83,14 +82,14 @@ class EditUserProfileForm(forms.ModelForm):
                         }),
                 'gender': forms.Select(attrs={'class': 'form-control'}),
                 'bio': SummernoteWidget(attrs={'class': 'form-control'}),
-                
+
             }
 
 
 class CustomSignupForm(SignupForm):
 
     first_name = forms.CharField(
-        max_length=30, label='First Name', 
+        max_length=30, label='First Name',
         widget=forms.TextInput(attrs={'placeholder': 'First Name'}))
     last_name = forms.CharField(
         max_length=30, label='Last Name',
