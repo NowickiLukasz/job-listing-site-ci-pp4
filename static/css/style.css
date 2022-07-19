@@ -20,7 +20,7 @@
 }
 
 /*  Authentication section */
-#delete-job, #logout, #login,#register{
+#delete-job, #logout, #login,#register, #no-super-permission{
     width: 50%;
     text-align: center;
     margin-top: 50px;
@@ -29,10 +29,14 @@
     padding: 10px;
 }
 
+
 .edit-delete-right{
     float: right;
 }
 
+.center-paragraph{
+    text-align: center;
+}
 /* .head-img{
     display: block;
     margin-left: auto;

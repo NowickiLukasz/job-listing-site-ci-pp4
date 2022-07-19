@@ -2,8 +2,18 @@
 
 
 {% block content %}
-
-<h1>You cant be here</h1>
-
+<div id="no-super-permission" class="container">
+    <div class="row">
+        <div class="col">
+            <h1>You dont have permission to be here</h1>
+            <hr>
+            <h1>Log in as site owner or continue to home page as <strong>{{ user.username }}</strong></h1>
+            <hr>
+            <p class="center-paragraph"><a href="{% url 'job_listing' %}">Go back to home page.</a></p>
+            <p class="center-paragraph">Or</p>
+            <p class="center-paragraph"><a href="{% url 'account_logout' %}">Logout</a></p>
+</div>
+    </div>
+</div>
 
 {% endblock %}

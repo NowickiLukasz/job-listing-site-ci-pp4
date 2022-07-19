@@ -84,7 +84,7 @@ class JobListingDetail(LoginRequiredMixin, generic.DetailView):
         )
 
 
-class AddJobListingView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
+class AddJobListingView(SuperuserRequiredMixin, SuccessMessageMixin, generic.CreateView):
     """
         Allows for the creation of a new jobs listing
     """
@@ -103,7 +103,7 @@ class AddJobListingView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateV
         return super().form_valid(form)
     
 
-class EditJobListingView(SuccessMessageMixin, LoginRequiredMixin, generic.UpdateView):
+class EditJobListingView(SuccessMessageMixin, SuperuserRequiredMixin, generic.UpdateView):
     """
         Allows for the editing of an existing job listing
     """
@@ -116,7 +116,7 @@ class EditJobListingView(SuccessMessageMixin, LoginRequiredMixin, generic.Update
 
 
 class DeleteJobListingView(
-                SuccessMessageMixin, LoginRequiredMixin,
+                SuccessMessageMixin, SuperuserRequiredMixin,
                 generic.DeleteView
                 ):
     """
@@ -275,14 +275,14 @@ class EditUserProfileView(SuccessMessageMixin, SuperuserRequiredMixin, generic.U
 
 
 
-class DisplayDraftJobList(LoginRequiredMixin, generic.ListView):
+class DisplayDraftJobList(SuperuserRequiredMixin, generic.ListView):
     """
         Allows the Admin User to display job listings that are not published 
         yet
     """
     
     def get(self, request):
-        if request.user.is_superuser:
+        # if request.user.is_superuser:
             drafts = JobListing.objects.filter(composed_status=0)
             
             return render(
@@ -292,17 +292,17 @@ class DisplayDraftJobList(LoginRequiredMixin, generic.ListView):
                     'drafts': drafts,
                 }
             )
-        else:
-            return HttpResponseRedirect(reverse('home'))
+        # else:
+        #     return HttpResponseRedirect(reverse('home'))
 
 
-class DraftJobListingDetail(LoginRequiredMixin, generic.DetailView):
+class DraftJobListingDetail(SuperuserRequiredMixin, generic.DetailView):
     """
         Allows the details of a job listing to be viewed
     """
     
     def get(self, request, slug, *args, **kwargs):
-        if request.user.is_superuser:
+        # if request.user.is_superuser:
             queryset = JobListing.objects.filter(composed_status=0)
             job = get_object_or_404(queryset, slug=slug)
 
@@ -313,8 +313,8 @@ class DraftJobListingDetail(LoginRequiredMixin, generic.DetailView):
                     'job': job,
                 }
             )
-        else:
-            return HttpResponseRedirect(reverse('home'))
+        # else:
+        #     return HttpResponseRedirect(reverse('home'))
 
     def post(self, request, slug, *args, **kwargs):
         queryset = JobListing.objects.filter(composed_status=0)

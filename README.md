@@ -88,7 +88,7 @@ First stage is for a user or admin that is not signed in. It shows an option to 
 <details>
 <summary>Signed out</summary>
 <br>
-<img src="./assets/images/signed-out.png">
+<img src="./assets/images/readme-img/signed-out.png">
 </details>
 
 Second stage is that or a logged in user. The Nav bar then shows an option to edit user profile or view job listings
@@ -96,7 +96,7 @@ Second stage is that or a logged in user. The Nav bar then shows an option to ed
 <details>
 <summary>Signed in</summary>
 <br>
-<img src="./assets/images/user-signed-in.png">
+<img src="./assets/images/readme-img/user-signed-in.png">
 </details>
 
 The third stage is where an ADMIN is logged in, this has more access to the site, it allows the admin to add a new job listing and view applicants for the jobs posted. 
@@ -104,7 +104,7 @@ The third stage is where an ADMIN is logged in, this has more access to the site
 <details>
 <summary>Signed in as admin</summary>
 <br>
-<img src="./assets/images/admin-signed-in.png">
+<img src="./assets/images/readme-img/admin-signed-in.png">
 </details>
 
 <br>
@@ -120,19 +120,19 @@ For the site we have the ability to register and sign in for the site. This func
 <details>
 <summary>Sign In page</summary>
 <br>
-<img src="./assets/images/sign-in.png">
+<img src="./assets/images/readme-img/sign-in.png">
 </details>
 
 <details>
 <summary>Sign Out Page</summary>
 <br>
-<img src="./assets/images/sign-out.png">
+<img src="./assets/images/readme-img/sign-out.png">
 </details>
 
 <details>
 <summary>Register</summary>
 <br>
-<img src="./assets/images/register.png">
+<img src="./assets/images/readme-img/register.png">
 </details>
 
 <br>
@@ -148,7 +148,7 @@ Once this is completed, the user may view the job listings with the ability to a
 <details>
 <summary>Job Listing Page</summary>
 <br>
-<img src="./assets/images/job-listing.png">
+<img src="./assets/images/readme-img/job-listing.png">
 </details>
 
 <br>
@@ -160,7 +160,7 @@ The add job page has a form that contains all the fields which need to be filled
 <details>
 <summary>Job Add Page</summary>
 <br>
-<img src="./assets/images/add-job.png">
+<img src="./assets/images/readme-img/add-job.png">
 </details>
 
 <br>
@@ -172,7 +172,7 @@ The page form comes prepopulated with the current details of the job and once al
 <details>
 <summary>Edit Job</summary>
 <br>
-<img src="./assets/images/edit-job.png">
+<img src="./assets/images/readme-img/edit-job.png">
 </details>
 
 <br> 
@@ -185,7 +185,7 @@ The page shows a warning message
 <details>
 <summary>Delete Job</summary>
 <br>
-<img src="./assets/images/delete-job.png">
+<img src="./assets/images/readme-img/delete-job.png">
 </details>
 
 <br>
@@ -197,7 +197,7 @@ This page also has an application section. This section can only be viewed if th
 <details>
 <summary>Job Details</summary>
 <br>
-<img src="./assets/images/job-details.png">
+<img src="./assets/images/readme-img/job-details.png">
 </details>
 
 <br>
@@ -205,18 +205,18 @@ This page also has an application section. This section can only be viewed if th
 <details>
 <summary>Application Section</summary>
 <br>
-<img src="./assets/images/job-cover-letter-apply.png">
+<img src="./assets/images/readme-img/job-cover-letter-apply.png">
 </details>
 
 <br>
 
 ### Admin Job Drafts Page
-The admin may view job listings that have not yeyt been published. The job listing then may be edited, deleted or published to the site so that new applicants may apply for the job.
+The admin may view job listings that have not yet been published. The job listing then may be edited, deleted or published to the site so that new applicants may apply for the job.
 
 <details>
 <summary>Drafts</summary>
 <br>
-<img src="./assets/images/drafts.png">
+<img src="./assets/images/readme-img/drafts.png">
 </details>
 
 <br>
@@ -228,7 +228,7 @@ This section allows the admin to view the details of the posted job, the cover l
 <details>
 <summary>Job Applications Section</summary>
 <br>
-<img src="./assets/images/job-applications.png">
+<img src="./assets/images/readme-img/job-applications.png">
 </details>
 
 <br>
@@ -236,7 +236,7 @@ This section allows the admin to view the details of the posted job, the cover l
 <details>
 <summary>Job Application Details</summary>
 <br>
-<img src="./assets/images/job-application-details.png">
+<img src="./assets/images/readme-img/job-application-details.png">
 </details>
 
 <br>
@@ -247,7 +247,7 @@ Users may fill out their details in their own profile page. This page is linked 
 <details>
 <summary>Profile Page</summary>
 <br>
-<img src="./assets/images/profile-page.png">
+<img src="./assets/images/readme-img/profile-page.png">
 </details>
 
 <br>
@@ -258,7 +258,7 @@ The user has the ability to update their profile details including their bio.
 <details>
 <summary>Edit Profile Page</summary>
 <br>
-<img src="./assets/images/edit-profile-page.png">
+<img src="./assets/images/readme-img/edit-profile-page.png">
 </details>
 
 <br>
@@ -270,168 +270,21 @@ Pagination of the listings allows for the display of a limited amount of jobs on
 <details>
 <summary>Pagination</summary>
 <br>
-<img src="./assets/images/pagination.png">
+<img src="./assets/images/readme-img/pagination.png">
 </details>
 
 <br>
 
 ### Adding Modals as defensive programing
-Modals are used here as a way to ask the user if they wish to either complete an update or the deletion of a job listing. This prevents the accidental deletion of ajob listing.
+Modals are used here as a way to ask the user if they wish to either complete an update or the deletion of a job listing. This prevents the accidental deletion of a job listing.
         Add a modal to show that a deleption is irreversible 
 
 ## Testing 
-    Either manual or automatic
-
-## Deployment 
-
-### Setting up the Workspace:
-
-1. Install Django with version 3.2:
-    * ```pip install django3.2 ```
-2. Install gunicorn:
-    * ```pip install gunicorn```
-3. Install supporting libraries:
-    * ```pip install dj_database_url psycopg2```
-    * ```pip install dj3-cloudinary-storage```
-4. Create requirements.txt:
-    * ```pip freeze --local > requirements.txt```
-5. Create an empty folder for your project in your chosen location.
-6. Create a project in the above folder:
-    * django-admin startproject <PROJECT_NAME> 
-7. Create an app within the project:
-    * ```python manage.py startapp APP_NAME``` 
-8. Add a new app to the list of installed apps in setting.py
-9. Migrate changes: 
-    * ```python manage.py migrate```
-10. Test server works locally: 
-    * ```python manage.py runserver```  (You should see the default Django success page)
-
-### Create Heroku App:
-The below works on the assumption that you already have an account with [Heroku](https://id.heroku.com/login) and are already signed in.
-1. Create a new Heroku app:
-    * Click "New" in the top right-hand corner of the landing page, then click "Create new app."
-2. Give the app a unique name:
-    * Will form part of the URL 
-3. Select the nearest location:
-    * For me, this was Europe.
-4. Add Database to the Heroku app:
-    * Navigate to the Resources tab of the app dashboard. Under the heading "Add ons," search for "Heroku Postgres" and click on it when it appears. 
-    * Select "Hobby Dev - Free" from the "plan name" drop-down menu and click "Submit Order Form."
-5. From your editor, go to your projects settings.py file and copy the SECRET_KEY variable. Add this to the same name variable under the Heroku App's config vars.
-    * left box under config vars (variable KEY) = SECRET_KEY
-    * right box under config vars (variable VALUE) = Value copied from settings.py in project.
-
-### Creating Environmental Variables Locally:
-
-1. On your local machine, create a file called ".env" at the same level as settings.py and add this to the .gitignore file.
-2. From the Heroku app settings tab, click "reveal config vars" and copy the value of the variable DATABASE_URL. Add this value to a variable called DATABASE_URL in your create .env file:
-    * ``` DATABASE_URL=PastedValueFromHerokuHere ```
-3. From your projects settings.py file, copy the SECRET_KEY value and assign it to a variable called SECRET_KEY in your .env file
-    * ``` SECRET_KEY=PastedValueFromYourProjectsSettings.pyFile ```
-4. Add DEVELOPMENT variable to .env file:
-    * ``` DEVELOPMENT=development ```
-5. Add CLOUDINARY_URL variable to .env file:
-    * Log into cloudinary and from the dashboard copy the API Environmental Variable.
-    * Add to .env file like below
-        * ``` CLOUDINARY_URL=PastedApiEnvironmentalVariable ```
+[TESTING.md](TESTING.md)
 
 
-### Setting up setting.py File:
-1. At the top of your settings.py file, add the following snippet immediately after the other imports:
-    ``` 
-        import os
-        import dj_database_url
-        if os.path.isfile('env.py'):  
-
-        SECRET_KEY = os.environ.get("SECRET_KEY")
-        DEBUG = True
-    ``` 
-2. Delete the value from the setting.py DATABASES section and replace it with the following snippet to link up the Heroku Postgres server:  
-   
-    ```
-    DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
-    }
-    ```
-
-3. Add Cloudinary libraries to the installed apps section of settings.py file:
-   
-   ```
-    INSTALLED_APPS = [
-   …,
-   'cloudinary_storage',
-   'django.contrib.staticfiles',
-   'cloudinary',
-   …,
-   ]
-   (note: order is important)
-   ```
-
-4. Tell Django to use Cloudinary to store media and static files by placing this snippet under the comments indicated below:
-```
-    # Static files (CSS, JavaScript, Images)
-    # https://docs.djangoproject.com/en/3.2/howto/static-files/
-    STATIC_URL = '/static/'
-    STATICFILES_STORAGE = 'cloudinary_storage.storage.StaticHashedCloudinaryStorage'
-    STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static/')]
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
-    MEDIA_URL = '/media/'
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-```
-
-5. Under the line with BASE_DIR, link templates directly in Heroku via settings.py:
-   * ``` TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates') ```
-
-6. Within TEMPLATES array, add ``` 'DIRS':[TEMPLATES_DIR] ``` like the below example:
-```
-   TEMPLATES = [
-       {
-           …,
-           'DIRS': [TEMPLATES_DIR],
-           …,
-          
-        },
-       },
-   ]
-```
-7. Add allowed hosts to settings.py:
-    * ``` ALLOWED_HOSTS = ["PROJECT_NAME.herokuapp.com", "localhost"] ``` 
-
-8. Create Procfile at the top level of the file structure and insert the following:
-    * ``` web: gunicorn PROJECT_NAME.wsgi ```
-
-9. Make an initial commit and push the code to the GitHub Repository.
-    * ```git add .```
-    * ```git commit -m "Initial deployment"```
-    * ```git push```
-
-### Set up Heroku for use via the console.
-1. Click on Account Settings (under the avatar menu)
-2. Scroll down to the API Key section and click Reveal. Copy the API key.
-3. Log in to Heroku via the console and enter your details.
-    * heroku login-i
-    * When prompted, enter your Heroku username
-    * Enter copied API key as the password
-
-4. Get your app name from Heroku
-    * ```heroku apps```
-5. Set Heroku remote
-    * ```heroku git:remote -a <app_name>```
-6. Add, Commit, Pust to GitHub:
-    * ```git add . && git commit -m "Deploy to Heroku via CLI"```
-7. Push to GitHub and Heroku
-    * ```git push origin main```
-    * ```git push heroku main ```
-
-### Final Deployment steps
-Once code changes have been completed and tested on localhost, the application can be prepared for Heroku deployment as follows :
-- Set DEBUG flag to False in settings.py
-- Ensure requirements.txt is up to date using the command : pip3 freeze --local > requirements.txt
-- Push files to GitHub
-- In the Heroku Config Vars for the application delete this environment variable :  DISABLE_COLLECTSTATIC
-- On the Heroku dashboard go to the Deploy tab for the application and click on deploy branch
-
+## Deployment
+[DEPLOYMENT.md](DEPLOYMENT.md)
 
 ## Tech Used 
     python
