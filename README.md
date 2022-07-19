@@ -263,6 +263,15 @@ The user has the ability to update their profile details including their bio.
 
 <br>
 
+### Unauthorised page - 403
+Any user that is not authorised to access sensitive pages will be shown a page with information to either go back hoome or to log in as page owner.
+
+<details>
+<summary>Not Authorised Page</summary>
+<br>
+<img src="./assets/images/readme-img/edit-profile-page.png">
+</details>
+
 
 ### Pagination
 Pagination of the listings allows for the display of a limited amount of jobs on one page before being asked to go to the next page if there are more than 5 job listings. 

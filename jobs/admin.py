@@ -8,7 +8,7 @@ from django_summernote.admin import SummernoteModelAdmin
 class JobAdmin(SummernoteModelAdmin):
     
     list_display = (
-        'title', 'slug', 'composed_status', 'created_on', 
+        'title', 'slug', 'composed_status', 'created_on',
         'postition_type',
         )
     list_filter = ('composed_status', 'created_on', 'postition_type')

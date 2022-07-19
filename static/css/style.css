@@ -57,10 +57,12 @@
     margin-top: 50px;;
 }
 
-body{
+main{
     background-color: white;
-    padding-bottom: 60px;
-   
+}
+
+footer{
+    
 }
 
 h1, h3{
