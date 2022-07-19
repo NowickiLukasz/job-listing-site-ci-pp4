@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib import messages
+from django.contrib.auth.decorators import user_passes_test
 from django.views import generic, View
-from django.http import HttpResponseRedirect
+# from braces.views import SuperuserRequiredMixin
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from .models import JobListing, CoverLetter, UserProfile
@@ -11,6 +13,11 @@ from .forms import (
     CoverLetterForm, AddJobListingForm, EditJobListingForm,
     EditUserProfileForm
     )
+
+
+class SuperuserRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.is_superuser
 
 
 class JobListingView(generic.ListView):
@@ -77,7 +84,7 @@ class JobListingDetail(LoginRequiredMixin, generic.DetailView):
         )
 
 
-class AddJobListingView(SuccessMessageMixin, LoginRequiredMixin, generic.CreateView):
+class AddJobListingView(LoginRequiredMixin, SuccessMessageMixin, generic.CreateView):
     """
         Allows for the creation of a new jobs listing
     """
@@ -86,6 +93,10 @@ class AddJobListingView(SuccessMessageMixin, LoginRequiredMixin, generic.CreateV
     template_name = 'add_job_listing.html'
     form_class = AddJobListingForm
     success_message = "Job Has Been Sent to Drafts"
+
+    # # def get(self, request, *args, **kwargs):
+    # #     if not request.user.is_superuser:
+    # #         return HttpResponseRedirect(reverse('job_listing'))
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -119,22 +130,62 @@ class DeleteJobListingView(
     success_message = "Job has been deleted"
 
 
-class JobApplicationsView(LoginRequiredMixin, generic.ListView):
+class JobApplicationsView(SuperuserRequiredMixin, generic.ListView):
     """
         Displays a list view of all the job applications
     """
-
     model = CoverLetter
     template_name = 'job_applicants.html'
     querysetlist = CoverLetter.objects.all()
 
 
-class JobApplicationDetailsView(LoginRequiredMixin, generic.DetailView):
+    
+    # def get(self, request, *args, **kwargs):
+    #     if not request.user.is_superuser:
+    #         return HttpResponseRedirect(reverse('home'))
+    #     else:
+    #         return render(
+    #             request,
+    #             'job_applicants.html'
+    #         )
+
+    # def get(self, request, *args, **kwargs):
+    #     if not request.user.is_superuser:
+    #         return HttpResponseRedirect(reverse('job_listing'))
+    #     else:
+    #         return HttpResponse('job_applicants')
+        
+
+
+    # def get(self, request, *args, **kwargs):
+    #     if not request.user.is_superuser:
+    #         return HttpResponse('Unauthorized', status=401)
+    #     self.object_list = self.get_queryset()
+    #     allow_empty = self.get_allow_empty()
+
+    #     if not allow_empty:
+    #         # When pagination is enabled and object_list is a queryset,
+    #         # it's better to do a cheap query than to load the unpaginated
+    #         # queryset in memory.
+    #         if self.get_paginate_by(self.object_list) is not None and hasattr(self.object_list, 'exists'):
+    #             is_empty = not self.object_list.exists()
+    #         else:
+    #             is_empty = not self.object_list
+    #         if is_empty:
+    #             raise Http404(_('Empty list and “%(class_name)s.allow_empty” is False.') % {
+    #                 'class_name': self.__class__.__name__,
+    #             })
+    #     context = self.get_context_data()
+    #     return self.render_to_response(context)
+
+
+class JobApplicationDetailsView(SuperuserRequiredMixin, generic.DetailView):
     """
     Displays job details and the users application
     """
 
     def get(self, request, pk,  *args, **kwargs):
+
         queryset = CoverLetter.objects.all()
         application = get_object_or_404(queryset, pk=pk)
 
@@ -208,7 +259,7 @@ class UserProfilePage(View):
         )
 
 
-class EditUserProfileView(SuccessMessageMixin, LoginRequiredMixin, generic.UpdateView):
+class EditUserProfileView(SuccessMessageMixin, SuperuserRequiredMixin, generic.UpdateView):
 
     """
         Allows for the editing of an existing user profile
@@ -220,6 +271,9 @@ class EditUserProfileView(SuccessMessageMixin, LoginRequiredMixin, generic.Updat
     success_url = reverse_lazy('home')
     success_message = "Profile was Updated Succesfully"
 
+    
+
+
 
 class DisplayDraftJobList(LoginRequiredMixin, generic.ListView):
     """
@@ -228,15 +282,18 @@ class DisplayDraftJobList(LoginRequiredMixin, generic.ListView):
     """
     
     def get(self, request):
-        drafts = JobListing.objects.filter(composed_status=0)
-        
-        return render(
-            request,
-            'drafts.html',
-            {
-                'drafts': drafts,
-            }
-        )
+        if request.user.is_superuser:
+            drafts = JobListing.objects.filter(composed_status=0)
+            
+            return render(
+                request,
+                'drafts.html',
+                {
+                    'drafts': drafts,
+                }
+            )
+        else:
+            return HttpResponseRedirect(reverse('home'))
 
 
 class DraftJobListingDetail(LoginRequiredMixin, generic.DetailView):

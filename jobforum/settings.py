@@ -61,6 +61,7 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
@@ -81,6 +82,10 @@ SUMMERNOTE_CONFIG = {
         ],
     }
 }
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION='none'
+
 
 MESSAGE_TAGS = {
     messages.DEBUG: 'alert-info',
