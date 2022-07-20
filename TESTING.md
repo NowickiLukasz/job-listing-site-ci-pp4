@@ -1,5 +1,40 @@
 # Manual Testing
 
+Bugs found during testing. 
+
+|Bug | Edit profile in base.html returns a page not found error  |
+|:-------:|:--------|
+| Solution| Create a contexts.py file and connect up in base.html edit-profile url|
+
+|Bug | When account is created and attempt to access user profile page, error on page not found. |
+|:-------:|:--------|
+| Solution| Create a signals.py file. This file connects the current created user withe the profile page and allows for connectivity in the bas.html page in order to access the user profile page.|
+
+| Bug | Jinja templating throws dublication error of id's in html validator |
+|:-------:|:--------|
+| Solution | Change ID'd of container to class for styling purpose |
+
+| Bug | Using Braces mixins, SuperuserRequiredMixin created a infinity loop when a non superuser tries to access a restriced site |
+|:-------:|:--------|
+| Solution | Create own class for SuperuserRequiredMixin, passing in UserPassesTest and LoginRequired. 
+
+| Bug | Footer id is duplicated in the html validation |
+|:-------:|:--------|
+| Solution | Remove footer tags from bottom of base.html page as text below main section |
+
+| Bug | Publish button in drafts.html does not function
+|:-------:|:--------|
+| Solution | Functionality was correct, function needed job.save() to complete the function|
+
+| Bug | Summernote field to large for mobile screens and accepts images which throw error |
+|:-------:|:--------|
+| Solution | In Settings.py , create a SUMMERNOTE_CONFIG section where it is 100% of the container, and remove non necessary editor functions. 
+
+| Bug | Website titles do not show in tabs in browser |
+|:-------:|:--------|
+| Solution | Add block title to base.html meta title and add to all html templates |
+
+
 ## As an **Admin** I can...
 This section is created for the admin panel testing only.
 
@@ -78,7 +113,7 @@ This section is created for the registered front-end testing.
 
 |Checked| Access the site from any device |
 |:-------:|:--------|
-| &check; | |
+
 
 
 # LightHouse Testing
@@ -229,6 +264,9 @@ Desktop Validation
 </details>
 <br>
 
+
+# PEP8 Validator
+All python file have been tested and tassed all pep8 complience.
 
 
 
