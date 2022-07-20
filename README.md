@@ -51,6 +51,108 @@ They will be able to submit a cover letter to a specific job.
 
 ### Wireframes
 
+Home Page
+<details>
+<summary>Home Desktop</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/home-desktop.png">
+</details>
+
+<details>
+<summary>Home Mobile</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/home-mobile.png">
+</details>
+
+Sign In
+<details>
+<summary>Sign in Desktop</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/sign-in-page-desktop.png">
+</details>
+
+<details>
+<summary>Sign in Mobile</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/sign-in-mobile.png"> ~ create view
+</details>
+
+Register Page
+<details>
+<summary>Register Desktop</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/register-page-desktop.png">
+</details>
+
+<details>
+<summary>Employer Register Desktop</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/employer-register-desktop.png">
+</details>
+
+<details>
+<summary> Register Mobile</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/register-mobile.png"> ~ create view
+</details>
+<br>
+
+Job Listing Page
+<details>
+<summary>Job Listing Desktop</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/job-listing-page-desktop.png">
+</details>
+
+<details>
+<summary>Job Listing Mobile</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/home-mobile.png">
+</details>
+<br>
+
+Job applications Page
+<details>
+<summary>Job applications Desktop</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/.png">  ~ make a list view 
+</details>
+
+<details>
+<summary>Job Application Mobile</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/applications-mobile.png">
+</details>
+<br>
+
+Job applications details page
+<details>
+<summary>Job applications details Desktop</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/job-application-details-desktop.png">
+</details>
+
+<details>
+<summary>Job Application Details Mobile</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/applications-details-mobile.png">
+</details>
+<br>
+
+Add Job page
+<details>
+<summary>Add Job Desktop</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/add-job-desktop.png">
+</details>
+
+<details>
+<summary>Add Job Mobile</summary>
+<br>
+<img src="./assets/images/readme-img/wireframes/add-job-mobile.png">
+</details>
+<br>
+
 ## User stories
 
 | Number | User Story                 | Description                                                 | Competed    |
