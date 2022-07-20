@@ -48,7 +48,6 @@ class CoverLetter(models.Model):
         JobListing, on_delete=models.CASCADE, related_name="applications"
         )
     full_name = models.CharField(max_length=150, default='Full Name')
-    title = models.CharField(max_length=150)
     location = models.CharField(max_length=300)  # check do i need
     postition_type = models.CharField(
         max_length=20, choices=POSITION_TYPE

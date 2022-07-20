@@ -1,7 +1,37 @@
 The site here created is used to post job applications from a single organisation, where multiple users can apply for jobs. The site admin/employer can then review the cover letters provided by the applicants. 
 
+[Deployed-site](https://job-forum-ci.herokuapp.com/)
 
-Table of content
+# Table of content
+1. [Planning](#planning)
+    - [Site Aims](#site-aims)
+2. [Scope](#scope)
+3. [Structure](#structure)
+    - [Database Schema](#database-schema)
+    - [Wireframes](#wireframes)
+4. [User Stories](#user-stories)
+5. [Agile Development](#agile-development)
+6. [Features](#features)
+    - [Navigation](#navigation)
+    - [Authorisation Pages](#authorisation-pages)
+    - [Job Listing Page](#job-listing-page)
+    - [Job Add Page](#job-add-page)
+    - [Job Edit Page](#job-edit)
+    - [Job Delete Page](#job-delete)
+    - [Job Details/ Application](#job-details-page-job-application-page)
+    - [Admin Job Drafts Page](#admin-job-drafts-page)
+    - [Admin View Job Application](#admin-view-applications)
+    - [User Profile](#profile)
+    - [Edit Profile](#edit-profile)
+    - [Unauthorised Page](#unauthorised-page---403)
+    - [pagination](#pagination)
+7. [Testing](#testing)
+8. [Deployment](#deployment)
+9. [Tech Used](#tech-used)
+10. [Sources](#sources)
+11. [Credits](#credits)
+
+
 
 ## Planning
 ### Site aims
@@ -47,9 +77,21 @@ They will be able to submit a cover letter to a specific job.
 
     
 ## Structure
-        Show how the site works in base functiuonality drawing
+
+### Database Schema
+
+<details>
+<summary>Database Schema</summary>
+<br>
+<img src="./assets/images/database/db-schema.png">
+</details>
+<br>
 
 ### Wireframes
+The Original plan for the site was to create a site where multiple users could register and sign in as an Employer. 
+This has been changed to reflect that the site is used by only one employer with multiple sites to advertise job offers.
+
+Original plans did not contain a drafts page nor did they have a profile page included in the drawings. These ideas came during the creation of the project.
 
 Home Page
 <details>
@@ -74,8 +116,9 @@ Sign In
 <details>
 <summary>Sign in Mobile</summary>
 <br>
-<img src="./assets/images/readme-img/wireframes/sign-in-mobile.png"> ~ create view
+<img src="./assets/images/readme-img/wireframes/sign-in-mobile.png"> 
 </details>
+<br>
 
 Register Page
 <details>
@@ -93,7 +136,7 @@ Register Page
 <details>
 <summary> Register Mobile</summary>
 <br>
-<img src="./assets/images/readme-img/wireframes/register-mobile.png"> ~ create view
+<img src="./assets/images/readme-img/wireframes/register-mobile.png">
 </details>
 <br>
 
@@ -115,7 +158,7 @@ Job applications Page
 <details>
 <summary>Job applications Desktop</summary>
 <br>
-<img src="./assets/images/readme-img/wireframes/.png">  ~ make a list view 
+<img src="./assets/images/readme-img/wireframes/job-applications-desktop.png">
 </details>
 
 <details>
@@ -170,7 +213,7 @@ Add Job page
 #11      | Delete a job listing       | As a EMPLOYER I can DELETE THE JOB LISTING so that THE JOB WILL NO LONGER BE AVAILABE TO BE APPLIED FOR   | Yes  |
 #12      | Update a job listing       | As a EMPLOYER I can UPDATE THE JOBLISTING so that IT CAN BE KEPT UP TO DATE  |Yes   |
 #13      | View job applications      | As a EMPLOYER I can VIEW ALL JOB APPLICATIONS so that I CAN CHOOSE THE RIGHT APPLICANT        | Yes    |
-#14      | View number of times a job listing has been viewed| As a EMPLOYER I can VIEW THE NUMBER OF TIMES A JOB HAS BEEN VIEWED so that I CAN KNOW IF THE JOB IS POPULAR| Yes   |
+#14      | View number of times a job listing has been viewed| As a EMPLOYER I can VIEW THE NUMBER OF TIMES A JOB HAS BEEN VIEWED so that I CAN KNOW IF THE JOB IS POPULAR| Future Features  |
 #15      | View Cover letters| As a EMPLOYER I can VIEW THE COVER LETTER ONLY so that SO THAT NOBODY APART FFROM THE ADMIN CAN HAVE ACCES TO CONFIDENTIAL INFORMATION| Yes     |
 #16      | Authorisation for editing and deletion| As a EMPLOYER I can HAVE THE AUTHORITY TO EDIT AND DELETE JOB LISTINGS so that NOBODY ELSE CAN ADJUST MY LISTINGS IN A MLICIOUS WAY        | Yes      |
 #17      | View Job Listings   | As a USER I can VIEW JOB LISTINGS so that CHOOSE WHAT JOB I WAN TO APPLY FOR        | Yes      |
@@ -178,10 +221,10 @@ Add Job page
 #19      |View and publish draft jobs| As a ADMIN I can VIEW, EDIT and PUBLISH JOBS so that NEW JOB LISTINGS CAN BE VIEWED BY THE APPLICANTS| Yes
 
 
-Agile Development
+## Agile Development
 
 
- ## Features
+## Features
 
 ### Navigation
 The navigation bar on the top of the page reflects 3 different stages of the site. 
@@ -212,10 +255,6 @@ The third stage is where an ADMIN is logged in, this has more access to the site
 <br>
 
 
-### Images
-        Show images used for the sites 
-
-
 ### Authorisation pages 
 For the site we have the ability to register and sign in for the site. This functionality is provided through the DJANGO framework and allows for automatic authorisation of the new or existing user. 
 
@@ -238,9 +277,6 @@ For the site we have the ability to register and sign in for the site. This func
 </details>
 
 <br>
-
-
-
 
 ### Job Listing Page
 The Job listing page is located in two sections of the site. 
@@ -387,10 +423,11 @@ Pagination of the listings allows for the display of a limited amount of jobs on
 <br>
 
 ## Testing 
+The following is a link to acces the manual testing file
 [TESTING.md](TESTING.md)
 
 ## Deployment
-[DEPLOYMENT.md](DEPLOYMENT.md)
+The following is a link to acces the deployment file
 
 ## Tech Used 
     python

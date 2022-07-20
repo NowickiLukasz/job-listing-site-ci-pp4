@@ -1,5 +1,13 @@
 # Deployment 
 
+# Table of content
+1. [Setting up the Workspace](#setting-up-the-workspace)
+2. [Create Heroku App](#create-heroku-app)
+3. [Creating Environmental Variables Locally](#creating-environmental-variables-locally)
+4. [Setting up setting.py File](#setting-up-settingpy-file)
+5. [Set up Heroku for use via the console](#set-up-heroku-for-use-via-the-console)
+6. [Final Deployment steps](#final-deployment-steps)
+
 ## Setting up the Workspace:
 
 1. Install Django with version 3.2:

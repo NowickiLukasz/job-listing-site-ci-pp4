@@ -1,6 +1,19 @@
+
 # Manual Testing
 
-Bugs found during testing. 
+# Table of content
+1. [Bugs found during testing](#bugs-found-during-testing)
+2. [Testing](#testing-functionality)
+    - [As an **Admin** I can](#as-an-admin-i-can)
+    - [As an **Unregistered User**](#as-an-unregistered-user)
+    - [As a **Registered User](#as-a-registered-user)
+3. [LightHouse Testing](#lighthouse-testing)
+4. [HTML Validator](#html-validator)
+5. [CSS Validator](#css-validator)
+6. [PEP8 Validator](#pep8-validator)
+
+
+# Bugs found during testing. 
 
 |Bug | Edit profile in base.html returns a page not found error  |
 |:-------:|:--------|
@@ -34,7 +47,7 @@ Bugs found during testing.
 |:-------:|:--------|
 | Solution | Add block title to base.html meta title and add to all html templates |
 
-
+# Testing functionality
 ## As an **Admin** I can...
 This section is created for the admin panel testing only.
 
@@ -266,7 +279,7 @@ Desktop Validation
 
 
 # PEP8 Validator
-All python file have been tested and tassed all pep8 complience.
+All python files have been tested and passed all pep8 complience.
 
 
 
