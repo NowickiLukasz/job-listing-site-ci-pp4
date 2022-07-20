@@ -2,6 +2,7 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
+/* Footer styling */
 .footer {
     position:fixed;
     bottom:0;
@@ -17,11 +18,21 @@
 }
 
 /* Detail View Styling */
-#job-details, #application-details, #profile-details, #drafts-details, .detail-view{
+.detail-view{
     width: 70%;
     padding-top: 2%;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+/* Edit and delete button styling */
+.edit-delete-right{
+    float: right;
+}
+
+/* Center paragraphs */
+.center-paragraph{
+    text-align: center;
 }
 
 /*  Authentication section */
@@ -34,63 +45,26 @@
     padding: 10px;
 }
 
-
-.edit-delete-right{
-    float: right;
-}
-
-.center-paragraph{
-    text-align: center;
-}
-
-
+/* Navigation bar styling */
 #nav-bar{
     background-color: #7D869C;
 }
 
-#job-details{
-    border: 2px solid black;
-    border-radius: 5px;
-    margin-top: 50px;;
-}
-
+/* Body styling */
 main{
     background-color: white;
     padding-bottom: 60px;
 }
 
-
+/* Heading styling */
 h1, h3{
     margin-top: 10px;
     text-align: center;
 }
 
 /* Media queries */
-
-/* @media screen and (max-width: 900px) and (min-width: 600px) {
-    .head-img{
-        width: 50%;
-        height: 50%;
-    }
-} */
-
-/* @media (min-width: 768px) {
-    .head-img{
-        width: 100%;
-        height: 75%;
-    }
-} */
-/* 
 @media (max-width: 768px) {
-    #application-details, #drafts, #job-details, #job-listing, #saved-jobs{
-        width: 100%;
-        padding-top: 2%;
-    }
-} */
-
-@media (max-width: 768px) {
-    #application-details, #drafts, #job-details, #job-listing, #saved-jobs,
-    #logout, #login,#register{
+    .list-view, .detail-view{
         width: 100%;
         padding-top: 2%;
     }

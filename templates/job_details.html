@@ -6,14 +6,10 @@
 {% load crispy_forms_tags %}
 <h1>Apply for a Job Here</h1>
 
-<!-- <img class="head-img" src="https://res.cloudinary.com/dap68aklo/image/upload/v1656171249/apply-img_oxafuu.avif"> -->
 <div class="container detail-view">
     <div class="row">
         <div class="col">
             <div class="card-body">
-                <!-- {% if submited %}
-                    submited
-                {% else %} -->
                 
                 {% if user.is_authenticated %}
                 {% if user.is_authenticated %}
@@ -30,11 +26,7 @@
                 {% endif %}
                 
                 <form method="POST" action="#">
-                    <h2>Job Title: {{ job.title }} 
-                        <span>
-                            
-                        </span>
-                    </h2>
+                    <h2>Job Title: {{ job.title }}</h2>
                     <h4>Posted on: {{ job.created_on }}</h4>
                     <h4>Location: {{ job.location }}</h4>
                     <h4>Salary: {{ job.salary }}</h4>
@@ -50,16 +42,8 @@
                     <input id="submit-application" type="submit" class="btn btn-primary" value="Submit cover letter">
                 </form>
                 {% endif %}
-
-        <!-- {% endif %} -->
-
-                
             </div>
         </div>
     </div>
 </div>
-
-
-
-
 {% endblock %}
