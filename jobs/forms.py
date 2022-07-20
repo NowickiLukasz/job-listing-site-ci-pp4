@@ -68,8 +68,8 @@ class EditJobListingForm(forms.ModelForm):
 
 class EditUserProfileForm(forms.ModelForm):
     """
-        Adds fileds to the edit user form in order to 
-        allow user to fill out form. 
+        Adds fileds to the edit user form in order to
+        allow user to fill out form.
     """
 
     class Meta:
@@ -80,17 +80,17 @@ class EditUserProfileForm(forms.ModelForm):
 
         widgets = {
 
-                'title': forms.Select(attrs={'class': 'form-control'}),
-                'location': forms.TextInput(attrs={'class': 'form-control'}),
-                'country': forms.Select(attrs={'class': 'form-control'}),
-                'date_of_birth': forms.DateInput(
-                    attrs={
-                        'class': 'form-control', 'placeholder': 'YYYY-MM-DD'
-                        }),
-                'gender': forms.Select(attrs={'class': 'form-control'}),
-                'bio': SummernoteWidget(attrs={'class': 'form-control'}),
+            'title': forms.Select(attrs={'class': 'form-control'}),
+            'location': forms.TextInput(attrs={'class': 'form-control'}),
+            'country': forms.Select(attrs={'class': 'form-control'}),
+            'date_of_birth': forms.DateInput(
+                attrs={
+                    'class': 'form-control', 'placeholder': 'YYYY-MM-DD'
+                    }),
+            'gender': forms.Select(attrs={'class': 'form-control'}),
+            'bio': SummernoteWidget(attrs={'class': 'form-control'}),
 
-            }
+        }
 
 
 class CustomSignupForm(SignupForm):

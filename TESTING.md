@@ -82,11 +82,152 @@ This section is created for the registered front-end testing.
 
 
 # LightHouse Testing
+Desktop Validation
+
+<details>
+<summary>Home page</summary>
+<br>
+<img src="./assets/images/testing-img/lighthouse-desktop/jobs-home.png">
+</details>
+
+<details>
+<summary>Applicants Page</summary>
+<br>
+<img src="./assets/images/testing-img/lighthouse-desktop/applicants-page.png">
+</details>
+
+<details>
+<summary>Application Details Page</summary>
+<br>
+<img src="./assets/images/testing-img/lighthouse-desktop/application-details.png">
+</details>
+
+<details>
+<summary>Drafts Page</summary>
+<br>
+<img src="./assets/images/testing-img/lighthouse-desktop/drafts-page.png">
+</details>
+
+<details>
+<summary>Drafts Detail Page</summary>
+<br>
+<img src="./assets/images/testing-img/lighthouse-desktop/draft-details-page.png">
+</details>
+
+<details>
+<summary>Login</summary>
+<br>
+<img src="./assets/images/testing-img/lighthouse-desktop/login-page.png">
+</details>
+
+<details>
+<summary>Logout</summary>
+<br>
+<img src="./assets/images/testing-img/lighthouse-desktop/logout-page.png">
+</details>
+
+<details>
+<summary>Register</summary>
+<br>
+<img src="./assets/images/testing-img/lighthouse-desktop/register-page.png">
+</details>
+
+<details>
+<summary>Profile</summary>
+<br>
+<img src="./assets/images/testing-img/lighthouse-desktop/profile-page.png">
+</details>
+
+<details>
+<summary>Edit Profile</summary>
+<br>
+<img src="./assets/images/testing-img/lighthouse-desktop/edit-profile-page.png">
+</details>
+
+<details>
+<summary>Favourites</summary>
+<br>
+<img src="./assets/images/testing-img/lighthouse-desktop/favourites-page.png">
+</details>
+<br>
 
 # HTML Validator
 
+<details>
+<summary>Home page</summary>
+<br>
+<img src="./assets/images/testing-img/html-validation/home-page-validation.png">
+</details>
+
+<details>
+<summary>Applicants Page</summary>
+<br>
+<img src="./assets/images/testing-img/html-validation/job-applications-page-validation.png">
+</details>
+
+<details>
+<summary>Application Details Page</summary>
+<br>
+<img src="./assets/images/testing-img/html-validation/job-application-detail-validation.png">
+</details>
+
+<details>
+<summary>Drafts Page</summary>
+<br>
+<img src="./assets/images/testing-img/html-validation/drafts-page-validation.png">
+</details>
+
+<details>
+<summary>Drafts Detail Page</summary>
+<br>
+<img src="./assets/images/testing-img/html-validation/draft-details-validation.png">
+</details>
+
+<details>
+<summary>Login</summary>
+<br>
+<img src="./assets/images/testing-img/html-validation/login-validation.png">
+</details>
+
+<details>
+<summary>Logout</summary>
+<br>
+<img src="./assets/images/testing-img/html-validation/logout-validation.png">
+</details>
+
+<details>
+<summary>Register</summary>
+<br>
+<img src="./assets/images/testing-img/html-validation/register-validation.png">
+</details>
+
+<details>
+<summary>Profile</summary>
+<br>
+<img src="./assets/images/testing-img/html-validation/profile-validation.png">
+</details>
+
+<details>
+<summary>Edit Profile</summary>
+<br>
+<img src="./assets/images/testing-img/html-validation/edit-profile-validation.png">
+</details>
+
+<details>
+<summary>Favourites</summary>
+<br>
+<img src="./assets/images/testing-img/html-validation/favourites-validation.png">
+</details>
+<br>
+
 # CSS Validator
 
+<details>
+<summary>CSS</summary>
+<br>
+<img src="./assets/images/testing-img/css-validation/css-validation.png">
+</details>
+<br>
 
 
 

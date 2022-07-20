@@ -64,9 +64,14 @@ h1, h3{
 
 /* Media queries */
 @media (max-width: 768px) {
+    /* List and details view styling */
     .list-view, .detail-view{
         width: 100%;
         padding-top: 2%;
+    }
+    /* Authentication section */
+    #delete-job, #logout, #login,#register, #no-super-permission{
+        width: 100%;
     }
 }
 

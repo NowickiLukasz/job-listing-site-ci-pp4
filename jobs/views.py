@@ -257,15 +257,15 @@ class DisplayDraftJobList(SuperuserRequiredMixin, generic.ListView):
     """
 
     def get(self, request):
-            drafts = JobListing.objects.filter(composed_status=0)
+        drafts = JobListing.objects.filter(composed_status=0)
 
-            return render(
-                request,
-                'drafts.html',
-                {
-                    'drafts': drafts,
-                }
-            )
+        return render(
+            request,
+            'drafts.html',
+            {
+                'drafts': drafts,
+            }
+        )
 
 
 class DraftJobListingDetail(SuperuserRequiredMixin, generic.DetailView):
@@ -274,16 +274,16 @@ class DraftJobListingDetail(SuperuserRequiredMixin, generic.DetailView):
     """
 
     def get(self, request, slug, *args, **kwargs):
-            queryset = JobListing.objects.filter(composed_status=0)
-            job = get_object_or_404(queryset, slug=slug)
+        queryset = JobListing.objects.filter(composed_status=0)
+        job = get_object_or_404(queryset, slug=slug)
 
-            return render(
-                request,
-                'draft_details.html',
-                {
-                    'job': job,
-                }
-            )
+        return render(
+            request,
+            'draft_details.html',
+            {
+                'job': job,
+            }
+        )
 
     def post(self, request, slug, *args, **kwargs):
         queryset = JobListing.objects.filter(composed_status=0)
