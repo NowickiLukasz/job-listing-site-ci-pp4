@@ -1,4 +1,9 @@
+
 The site here created is used to post job applications from a single organisation, where multiple users can apply for jobs. The site admin/employer can then review the cover letters provided by the applicants. 
+
+
+<img src="./assets/images/am-i-responsive.png">
+
 
 [Deployed-site](https://job-forum-ci.herokuapp.com/)
 
@@ -92,6 +97,8 @@ The Original plan for the site was to create a site where multiple users could r
 This has been changed to reflect that the site is used by only one employer with multiple sites to advertise job offers.
 
 Original plans did not contain a drafts page nor did they have a profile page included in the drawings. These ideas came during the creation of the project.
+
+The use of images was not necessary as it would not bring much value to the site
 
 Home Page
 <details>
@@ -222,6 +229,19 @@ Add Job page
 
 
 ## Agile Development
+The agile methodology used in this project was a kan-ban board. 
+This allowed to the set up of the user stories in 4 stages. 
+First stage set up all of the tasks to be done.
+Second stage showed all the tasks that were currently in progress.
+Third stage was the completion of the tasks.
+Fourth stage is reserverd for the use of future features. 
+
+<details>
+<summary>Kan-Ban Board</summary>
+<br>
+<img src="./assets/images/agile-kan-ban.png">
+</details>
+<br>
 
 
 ## Features
@@ -422,24 +442,71 @@ Pagination of the listings allows for the display of a limited amount of jobs on
 
 <br>
 
+### Messages
+This section shows messages after user actions happen.
+
+<details>
+<summary>Added Job Message</summary>
+<br>
+<img src="./assets/images/readme-img/messages/job-added-msg.png">
+</details>
+
+<details>
+<summary>Added Job Updated Message</summary>
+<br>
+<img src="./assets/images/readme-img/messages/job-updated-msg.png">
+</details>
+
+<details>
+<summary>Profile Updated Message</summary>
+<br>
+<img src="./assets/images/readme-img/messages/profile-update-msg.png">
+</details>
+
+<details>
+<summary>Published Job Updated Message</summary>
+<br>
+<img src="./assets/images/readme-img/messages/published-job-msg.png">
+</details>
+
+<details>
+<summary>Signed in Message</summary>
+<br>
+<img src="./assets/images/readme-img/messages/signed-in-msg.png">
+</details>
+
+<details>
+<summary>Signed Out Message</summary>
+<br>
+<img src="./assets/images/readme-img/messages/signed-out-msg.png">
+</details>
+
 ## Testing 
 The following is a link to acces the manual testing file
 [TESTING.md](TESTING.md)
 
 ## Deployment
 The following is a link to acces the deployment file
+[DEPLOYMENT.md](DEPLOYMENT.md)
 
-## Tech Used 
-    python
-    Django
-    Heroku
-    Heroku PostgrSQL
-    HTML
-    CSS
-    JINJA
-    Boostrap
-    Font Awesome
-    Balsamiq
+## Tech Used
+* Python
+  * The packages installed for the is project can be found in the [requirements.txt](requirements.txt)
+* Django
+  * Django was used as the python framework in the project.
+  * Django all auth was used to handle user authentication and related tasks i.e. sign in, sign up, sign out.
+* Heroku
+  * Used to deploy the page and make it publicly available.
+* Heroku PostgreSQL
+  * Used for the database during development and in deployment.
+* HTML
+  * HTML was the base language used to layout the skeleton of all templates.
+* CSS
+  * Custom CSS used to style the page and make the appearance look a little more unique.
+* Bootstrap 4.6.1
+  * Used for the majority of styling throughout the document and for it's fantastic grid system. 
+* Font awesome
+  * All icons throughout the page.
 
 ## Sources
 
@@ -454,10 +521,12 @@ The following is a link to acces the deployment file
 
 ## Credits
 - Inspiration taken from: how to build job portal
-    - (https://techvidvan.com/tutorials/online-job-portal-python-django/)
+  - (https://techvidvan.com/tutorials/online-job-portal-python-django/)
 - Inspiration taken from: How to build a blog
-    - (https://www.youtube.com/watch?v=B40bteAMM_M&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&ab_channel=Codemy.com)
+  - (https://www.youtube.com/watch?v=B40bteAMM_M&list=PLCC34OHNcOtr025c1kHSPrnP18YPB-NFi&ab_channel=Codemy.com)
 - Messages 
-    - (https://pythonprogramming.net/messages-django-tutorial/)
+  - (https://pythonprogramming.net/messages-django-tutorial/)
+- Job Despriptions taken from.
+  - (https://www.jobs.ie/)
     
     

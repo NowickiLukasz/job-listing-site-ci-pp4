@@ -36,7 +36,7 @@ class CoverLetterAdmin(SummernoteModelAdmin):
         allows to filter date created and position status.
     """
     list_display = ('full_name', 'jobs', 'created_on')
-    list_filter = ('created_on', 'postition_type')
+    list_filter = ('created_on',)
     summernote_fields = ('cover_letter')
 
 

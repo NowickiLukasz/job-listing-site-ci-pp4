@@ -41,7 +41,7 @@
 
 | Bug | Summernote field to large for mobile screens and accepts images which throw error |
 |:-------:|:--------|
-| Solution | In Settings.py , create a SUMMERNOTE_CONFIG section where it is 100% of the container, and remove non necessary editor functions. 
+| Solution | In Settings.py , create a SUMMERNOTE_CONFIG section where it is 100% width of the container, and remove non necessary editor functions. 
 
 | Bug | Website titles do not show in tabs in browser |
 |:-------:|:--------|
@@ -126,6 +126,9 @@ This section is created for the registered front-end testing.
 
 |Checked| Access the site from any device |
 |:-------:|:--------|
+| &check; | The Site has been tested with Chrome developer tools for site repsonsiveness.|
+| &check; | The Site is responsive on mulitple mobile devive sizes|
+| &check; | The Site is responsive on mulitple desktop screen sizes|
 
 
 
@@ -279,7 +282,11 @@ Desktop Validation
 
 
 # PEP8 Validator
-All python files have been tested and passed all pep8 complience.
+All user created python files have been tested and passed all pep8 complience.
 
-
+# Cross browser Compatablity
+The site has been tested on 
+    - Google Chrome
+    - Opera Browser
+    - Edge Browser
 

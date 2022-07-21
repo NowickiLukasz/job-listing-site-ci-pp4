@@ -37,7 +37,10 @@ class AddJobListingForm(forms.ModelForm):
 
             'title': forms.TextInput(attrs={'class': 'form-control'}),
             'location': forms.TextInput(attrs={'class': 'form-control'}),
-            'salary': forms.NumberInput(attrs={'class': 'form-control'}),
+            'salary': forms.NumberInput(
+                attrs={
+                    'class': 'form-control', 'placeholder': 'Max €32767'
+                    }),
             'postition_type': forms.Select(attrs={'class': 'form-control'}),
             'description': SummernoteWidget(attrs={'class': 'form-control'}),
 

@@ -48,10 +48,10 @@ class CoverLetter(models.Model):
         JobListing, on_delete=models.CASCADE, related_name="applications"
         )
     full_name = models.CharField(max_length=150, default='Full Name')
-    location = models.CharField(max_length=300)  # check do i need
-    postition_type = models.CharField(
-        max_length=20, choices=POSITION_TYPE
-        )  # check do i need
+    # location = models.CharField(max_length=300)  
+    # postition_type = models.CharField(
+    #     max_length=20, choices=POSITION_TYPE
+    #     )  
     cover_letter = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
 
@@ -59,7 +59,9 @@ class CoverLetter(models.Model):
         ordering = ['-created_on']
 
     def __str__(self):
-        return self.title
+        return self.jobs.title
+
+
 
 
 class UserProfile(models.Model):
