@@ -73,6 +73,8 @@ This section is created for the admin panel testing only.
 | &check; | Can add new job listing |
 | &check; | Can set a job as draft|
 | &check; | Can set a job as published|
+| &check; | Can delete job drafts |
+| &check; | Can delete job listings |
 | &check; | Can view all job applications |
 
 This section is created for the admin front-end testing.
@@ -84,6 +86,8 @@ This section is created for the admin front-end testing.
 | &check; | Can view all jobs listed |
 | &check; | Can view all job applications |
 | &check; | Can view all job drafts |
+| &check; | Can delete job drafts |
+| &check; | Can delete job listings |
 | &check; | Can view applicants profile page |
 
 

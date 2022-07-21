@@ -70,7 +70,7 @@ h1, h3{
         padding-top: 2%;
     }
     /* Authentication section */
-    #delete-job, #logout, #login,#register, #no-super-permission{
+    #delete-job, #logout, #login,#register, #no-super-permission, #page-not-found{
         width: 100%;
     }
 }

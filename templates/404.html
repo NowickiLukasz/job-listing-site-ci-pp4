@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}You're not Authorised{% endblock %}
+
+{% block content %}
+<div id="page-not-found" class="container">
+    <div class="row">
+        <div class="col">
+            <h1>Sorry! Seems as this page doesn't exist.</h1>
+            <h1>Lets go back.</h1>
+            <hr>
+            <p class="center-paragraph"><a href="{% url 'job_listing' %}">Go back to home page.</a></p>
+            <p class="center-paragraph">Or</p>
+            <p class="center-paragraph"><a href="{% url 'account_logout' %}">Logout</a></p>
+</div>
+    </div>
+</div>
+
+{% endblock %}
