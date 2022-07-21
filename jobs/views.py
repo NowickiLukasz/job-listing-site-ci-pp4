@@ -86,7 +86,7 @@ class JobListingDetail(LoginRequiredMixin, generic.DetailView):
             cover_letter.save()
         else:
             cover_letter_form = CoverLetterForm()
-
+        # redirects to job_listing.html when job has been aplied for.
         return HttpResponseRedirect(reverse('job_listing'))
 
 
@@ -194,7 +194,7 @@ class JobSave(LoginRequiredMixin, View):
         else:
             job.saves.add(request.user)
             messages.success(request, "Job saved ")
-
+        # Redirects to current page when the user saves or removes saves job
         return HttpResponseRedirect(reverse('job_details', args=[slug]))
 
 
@@ -270,7 +270,7 @@ class DisplayDraftJobList(SuperuserRequiredMixin, generic.ListView):
 
 class DraftJobListingDetail(SuperuserRequiredMixin, generic.DetailView):
     """
-        Allows the details of a job listing to be viewed
+        Allows the details of a draft job listing to be viewed
     """
 
     def get(self, request, slug, *args, **kwargs):
@@ -288,10 +288,11 @@ class DraftJobListingDetail(SuperuserRequiredMixin, generic.DetailView):
     def post(self, request, slug, *args, **kwargs):
         queryset = JobListing.objects.filter(composed_status=0)
         job = get_object_or_404(queryset, slug=slug)
+        # sets composed status from draft to published, saves the action
         if job.composed_status == 0:
             job.composed_status = 1
             messages.success(
                 request, "You have succesfully posted the job.")
             job.save()
-
+        # Redirects to home page when job has been published.
         return HttpResponseRedirect(reverse('home'))

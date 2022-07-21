@@ -2,6 +2,8 @@
 {% block title %}Favourites{% endblock %}
 
 {% block content %}
+
+<!-- Page displaying saved jobs -->
 <h1>Your Saved Jobs</h1>
 {% for job in saved_jobs %}
 <div  class="container list-view">
@@ -14,10 +16,7 @@
             <h5 class="card-title"><i class="fa-solid fa-house"></i> || {{ job.location }} </h5>
             <p class="card-title"><i class="fa-solid fa-clock"></i> || {{ job.postition_type }} </p>
             <p class="card-title"><i class="fa-solid fa-euro-sign"></i> || {{ job.salary }} </p>
-            <a href="{% url 'job_details' job.slug %}" class="btn btn-primary">View Details</a>
-
-
-            
+            <a href="{% url 'job_details' job.slug %}" class="btn btn-primary">View Details</a> 
         </div>
     </div>
 </div>

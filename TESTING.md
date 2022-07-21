@@ -11,6 +11,7 @@
 4. [HTML Validator](#html-validator)
 5. [CSS Validator](#css-validator)
 6. [PEP8 Validator](#pep8-validator)
+7. [Cross Browser](#cross-browser-compatablity)
 
 
 # Bugs found during testing. 

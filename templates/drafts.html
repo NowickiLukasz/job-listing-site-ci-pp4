@@ -4,7 +4,7 @@
 {% block content %}
 
 <h1>Drafts</h1>
-
+<!-- Job drafts listing page -->
 {% for draft in drafts %}
 <div class="container list-view">
     <div class="card">
@@ -23,9 +23,6 @@
             <p class="card-title"><i class="fa-solid fa-clock"></i> || {{ draft.postition_type }} </p>
             <p class="card-title"><i class="fa-solid fa-euro-sign"></i> || {{ draft.salary }}/hr </p>
             <a href="{% url 'draft_details' draft.slug %}" class="btn btn-primary">View Details</a>
-
-
-            
         </div>
     </div>
 </div>

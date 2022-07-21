@@ -2,17 +2,14 @@
 {% block title %}Draft Details{% endblock %}
 
 {% block content %}
-
-
 {% load crispy_forms_tags %}
+
+<!-- Job draft details page -->
 <h1>Draft Details</h1>
 <div class="container detail-view">
     <div class="row">
         <div class="col">
             <div class="card-body">
-                <!-- {% if submited %}
-                    submited
-                {% else %} -->
                 {% if user.is_authenticated %}
                 
                 <a href="{% url 'edit_job' job.pk %}"><i class="fa-solid fa-pencil"></i></a>
@@ -32,16 +29,9 @@
                     <input type="submit" class="btn btn-primary" value="Publish Job">
                 </form>
                 {% endif %}
-
-        <!-- {% endif %} -->
-
-                
             </div>
         </div>
     </div>
 </div>
-
-
-
 
 {% endblock %}

@@ -4,6 +4,7 @@
 {% block content %}
 {% load crispy_forms_tags %}
 
+<!-- Details of job applications, displays job details, application and link to user profile -->
 <h1>Job Application Cover Letter</h1>
 
 <div class="container detail-view">
@@ -20,14 +21,10 @@
                         <h4>Applicant Username: <a href="{% url 'user_profile' application.user.id %}">{{application.full_name}}</a> </h4>
                         <hr>
                         <h4>Cover Letter: </h4>
-                        
                         <p>{{ application.cover_letter | safe }}</p>
                         <p>Applied on: {{ application.created_on }}</p>
                 </div>
         </div>
 </div>
-
-
-        
 
 {% endblock %}

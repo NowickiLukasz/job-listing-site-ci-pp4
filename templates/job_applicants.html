@@ -3,7 +3,7 @@
 
 {% block content %}
 
-
+<!-- Page displaying job applications from users in a list format -->
 <h1 id="applicants-heading">Job Applications</h1>
 
 {% for applicant in coverletter_list %}
@@ -17,7 +17,6 @@
             <h5 class="card-title"><i class="fa-solid fa-house"></i> {{ applicant.jobs.location }} </h5>            
             <h5 class="card-title"><i class="fa-solid fa-calendar-days"></i> {{ applicant.created_on }}</h5>
             <a href="{% url 'application_details' applicant.pk %}" class="btn btn-primary">View Application</a>
-            
         </div>
     </div>
 </div>
